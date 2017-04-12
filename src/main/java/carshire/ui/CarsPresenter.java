@@ -3,10 +3,13 @@ package carshire.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import carshire.domain.Car;
+import carshire.CarService;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 
@@ -33,11 +36,20 @@ public class CarsPresenter {
     @FXML
     private Tab pracownikTab;
 
+    @Autowired
+    CarService carTrackingService;
+
     @FXML
     public void btnAddCar() {
         if (manufacturer.getText().equals("") || name.getText().equals("")) {
+
         } else {
-             //Add car
+            Car car = new Car();
+            car.setManufacturer(manufacturer.getText());
+            car.setName(name.getText());
+            carTrackingService.save(car);
+            carsTable.getItems().add(car);
+
         }
     }
 
@@ -65,9 +77,22 @@ public class CarsPresenter {
     @FXML
     public void initialize() {
         disableTabs();
+        configureCarsTable();
+
+        for (Car car : carTrackingService.findAllCars()) {
+            carsTable.getItems().add(car);
+        }
+
+        carsTable.getSelectionModel().selectFirst();
     }
 
+    private void configureCarsTable() {
 
+        carManufacturerColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("manufacturer"));
+        carNameColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("name"));
+
+    }
+    
     @FXML
     private void disableTabs() {
         adminTab.setDisable(true);
