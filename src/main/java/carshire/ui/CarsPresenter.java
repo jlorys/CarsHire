@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import carshire.domain.Car;
 import carshire.CarService;
+import carshire.domain.Car.Status;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 
@@ -17,17 +18,29 @@ import javafx.scene.control.TextField;
 public class CarsPresenter {
 
     @FXML
-    TableView<Car> carsTable;
+    TableView<Car> cars;
 
     @FXML
-    TableColumn<Car, String> carManufacturerColumn;
+    TableColumn<Car, String> manufacturerColumn;
     @FXML
-    TableColumn<Car, String> carNameColumn;
+    TableColumn<Car, String> modelColumn;
+    @FXML
+    TableColumn<Car, Integer> yearOfManufactureColumn;
+    @FXML
+    TableColumn<Car, Float> engineCapacityColumn;
+    @FXML
+    TableColumn<Car, Integer> vehicleMileageColumn;
+    @FXML
+    TableColumn<Car, Float> pricePerDayColumn;
+    @FXML
+    TableColumn<Car, Status> statusColumn;
+    @FXML
+    TableColumn<Car, Integer> discountColumn;
+    @FXML
+    TableColumn<Car, String> registrationNumberColumn;
 
     @FXML
-    TextField manufacturer;
-    @FXML
-    TextField name;
+    TextField manufacturer, model, yearOfManufacture, engineCapacity, vehicleMileage, pricePerDay, status, discount, registrationNumber;
 
     @FXML
     private Tab adminTab;
@@ -41,16 +54,30 @@ public class CarsPresenter {
 
     @FXML
     public void btnAddCar() {
-        if (manufacturer.getText().equals("") || name.getText().equals("")) {
+        if (manufacturer.getText().equals("") || model.getText().equals("")) {
 
         } else {
             Car car = new Car();
             car.setManufacturer(manufacturer.getText());
-            car.setName(name.getText());
+            car.setModel(model.getText());
+            car.setYearOfManufacture(Integer.parseInt(yearOfManufacture.getText()));
+            car.setEngineCapacity(Float.parseFloat(engineCapacity.getText()));
+            car.setVehicleMileage(Integer.parseInt(vehicleMileage.getText()));
+            car.setPricePerDay(Float.parseFloat(pricePerDay.getText()));
+            car.setStatus(Status.Avalible);
+            car.setDiscount(0);
+            car.setRegistrationNumber(registrationNumber.getText());
             carTrackingService.save(car);
-            carsTable.getItems().add(car);
+            cars.getItems().add(car);
 
         }
+    }
+
+    @FXML
+    public void btnDeleteCar() {
+        Car car = cars.getSelectionModel().getSelectedItem();
+        carTrackingService.delete(car);
+        cars.getItems().remove(car);
     }
 
     @FXML
@@ -80,19 +107,25 @@ public class CarsPresenter {
         configureCarsTable();
 
         for (Car car : carTrackingService.findAllCars()) {
-            carsTable.getItems().add(car);
+            cars.getItems().add(car);
         }
 
-        carsTable.getSelectionModel().selectFirst();
+        cars.getSelectionModel().selectFirst();
     }
 
     private void configureCarsTable() {
 
-        carManufacturerColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("manufacturer"));
-        carNameColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("name"));
-
+        manufacturerColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("manufacturer"));
+        modelColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("model"));
+        yearOfManufactureColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("yearOfManufacture"));
+        engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<Car, Float>("engineCapacity"));
+        vehicleMileageColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("vehicleMileage"));
+        pricePerDayColumn.setCellValueFactory(new PropertyValueFactory<Car, Float>("pricePerDay"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<Car, Status>("status"));
+        discountColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("discount"));
+        registrationNumberColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("registrationNumber"));
     }
-    
+
     @FXML
     private void disableTabs() {
         adminTab.setDisable(true);

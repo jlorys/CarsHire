@@ -9,20 +9,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 class CarServiceImpl implements CarService {
-	
-        private final CarRepository carRepository;
-        
-        @Autowired
-	public CarServiceImpl(CarRepository carRepository) {
-		this.carRepository = carRepository;
-	}
 
-	public List<Car> findAllCars() {
-		return carRepository.findAll();
-	}
+    private final CarRepository carRepository;
 
-	@Transactional
-	public Car save(Car car) {
-		return carRepository.save(car);
-	}
+    @Autowired
+    public CarServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
+    public List<Car> findAllCars() {
+        return carRepository.findAll();
+    }
+
+    @Transactional
+    public Car save(Car car) {
+        return carRepository.save(car);
+    }
+
+    @Override
+    public void delete(Car car) {
+        carRepository.delete(car);
+    }
 }
