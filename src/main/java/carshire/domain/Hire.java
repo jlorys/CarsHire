@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Hire {
 
-    public enum Status {
+    public enum HireStatus {
         Paid,
         NotPaid
     };
@@ -28,11 +28,13 @@ public class Hire {
     private Long clientId;
     private Long carId;
     private Long sellerId;
+    @Column(columnDefinition = "DATETIME", nullable = true)
     private LocalDateTime hireDate;
+    @Column(columnDefinition = "DATETIME", nullable = true)
     private LocalDateTime hireEndDate;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private HireStatus status;
     private Float priceForHire;
     private Float defaultInterest;
 }

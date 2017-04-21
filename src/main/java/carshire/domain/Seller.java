@@ -15,19 +15,20 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 public class Seller {
-    
-    public enum Rights{
+
+    public enum Rights {
         Admin,
         Manager,
         Employee
     };
-        
-    @Id @GeneratedValue
-	private Long id;
+
+    @Id
+    @GeneratedValue
+    private Long id;
     private String firstName;
     private String lastName;
     private String login;
-	private String eMail;
+    private String eMail;
     private String password;
     private String city;
     private String street;

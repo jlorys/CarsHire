@@ -16,8 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Car {
 
-    public enum Status {
-
+    public enum CarStatus {
         Avalible,
         NotAvalible
     };
@@ -33,7 +32,7 @@ public class Car {
     private Float pricePerDay;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private CarStatus status;
     private Integer discount;
     private String registrationNumber;
 }

@@ -18,8 +18,8 @@
                         <Button layoutX="172.0" layoutY="175.0" mnemonicParsing="false" text="Zaloguj" />
                         <Label layoutX="172.0" layoutY="202.0" prefHeight="14.0" prefWidth="157.0" text="Tymczasowe rozwiązanie:" />
                         <Button layoutX="172.0" layoutY="220.0" mnemonicParsing="false" onAction="#btnEnableAdmin" styleClass="record-sales" text="Zaloguj jako Admin" />
-                        <Button layoutX="172.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnEnableKierownik" styleClass="record-sales" text="Zaloguj jako Kierownik" />
-                        <Button layoutX="172.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnEnablePracownik" styleClass="record-sales" text="Zaloguj jako Pracownik" />
+                        <Button layoutX="172.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnEnableManager" styleClass="record-sales" text="Zaloguj jako Kierownik" />
+                        <Button layoutX="172.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnEnableEmployee" styleClass="record-sales" text="Zaloguj jako Pracownik" />
                         <Button layoutX="173.0" layoutY="370.0" mnemonicParsing="false" onAction="#disableTabs" styleClass="record-sales" text="Wyloguj" />
                     </children>
                 </AnchorPane>
@@ -48,10 +48,17 @@
                                                 <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
                                                 <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
                                                 <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
-                                                <TableView layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
+                                                <TableView fx:id="managers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="Login" />
-                                                        <TableColumn prefWidth="75.0" text="PESEL" />
+                                                        <TableColumn fx:id="managerFirstNameColumn" prefWidth="83.0" text="%employeeFirstNameColumn.caption" />
+                                                        <TableColumn fx:id="managerLastNameColumn" prefWidth="83.0" text="%employeeLastNameColumn.caption" />
+                                                        <TableColumn fx:id="managerLoginColumn" prefWidth="83.0" text="%employeeLoginColumn.caption" />
+                                                        <TableColumn fx:id="managerEMailColumn" prefWidth="83.0" text="%employeeEMailColumn.caption" />
+                                                        <TableColumn fx:id="managerPasswordColumn" prefWidth="83.0" text="%employeePasswordColumn.caption" />
+                                                        <TableColumn fx:id="managerCityColumn" prefWidth="83.0" text="%employeeCityColumn.caption" />
+                                                        <TableColumn fx:id="managerStreetColumn" prefWidth="83.0" text="%employeeStreetColumn.caption" />
+                                                        <TableColumn fx:id="managerHouseNumberColumn" prefWidth="83.0" text="%employeeHouseNumberColumn.caption" />
+                                                        <TableColumn fx:id="managerRightsColumn" prefWidth="83.0" text="%employeeRightsColumn.caption" />
                                                     </columns>
                                                 </TableView>
                                                 <Label layoutX="260.0" layoutY="18.0" text="Kierownicy w bazie" />
@@ -66,13 +73,13 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="kierownikTab" styleClass="kierownikTab" text="Kierownik">
+        <Tab fx:id="managerTab" styleClass="managerTab" text="Kierownik">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TabPane layoutY="-2.0" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
-                                <Tab styleClass="kierownikTab" text="Pracownicy">
+                                <Tab styleClass="managerTab" text="Pracownicy">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="589.0" prefWidth="1024.0">
                                             <children>
@@ -91,10 +98,17 @@
                                                         <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
                                                         <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
                                                         <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
-                                                        <TableView layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
+                                                        <TableView fx:id="employees" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
                                                             <columns>
-                                                                <TableColumn prefWidth="75.0" text="Login" />
-                                                                <TableColumn prefWidth="75.0" text="PESEL" />
+                                                                <TableColumn fx:id="employeeFirstNameColumn" prefWidth="83.0" text="%employeeFirstNameColumn.caption" />
+                                                                <TableColumn fx:id="employeeLastNameColumn" prefWidth="83.0" text="%employeeLastNameColumn.caption" />
+                                                                <TableColumn fx:id="employeeLoginColumn" prefWidth="83.0" text="%employeeLoginColumn.caption" />
+                                                                <TableColumn fx:id="employeeEMailColumn" prefWidth="83.0" text="%employeeEMailColumn.caption" />
+                                                                <TableColumn fx:id="employeePasswordColumn" prefWidth="83.0" text="%employeePasswordColumn.caption" />
+                                                                <TableColumn fx:id="employeeCityColumn" prefWidth="83.0" text="%employeeCityColumn.caption" />
+                                                                <TableColumn fx:id="employeeStreetColumn" prefWidth="83.0" text="%employeeStreetColumn.caption" />
+                                                                <TableColumn fx:id="employeeHouseNumberColumn" prefWidth="83.0" text="%employeeHouseNumberColumn.caption" />
+                                                                <TableColumn fx:id="employeeRightsColumn" prefWidth="83.0" text="%employeeRightsColumn.caption" />
                                                             </columns>
                                                         </TableView>
                                                         <Label layoutX="260.0" layoutY="18.0" text="Pracownicy w bazie" />
@@ -105,7 +119,7 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="kierownikTab" text="Samochody">
+                                <Tab styleClass="managerTab" text="Samochody">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="693.0" prefWidth="1024.0">
                                             <children>
@@ -116,7 +130,7 @@
                                                         <Label layoutX="31.0" layoutY="50.0" text="Model" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                                                         <TextField fx:id="model" layoutX="111.0" layoutY="46.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                         <Button layoutX="22.0" layoutY="310.0" onAction="#btnAddCar" styleClass="record-sales" text="Dodaj samochód" />
-                                                        <Button layoutX="25.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnDeleteCar" text="Usuń " />
+                                                        <Button layoutX="25.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnDeleteCar" styleClass="record-sales" text="Usuń " />
                                                         <Label layoutX="260.0" layoutY="18.0" text="Samochody w bazie" />
                                                         <Label layoutX="12.0" layoutY="82.0" text="Rok produkcji" />
                                                         <TextField fx:id="yearOfManufacture" layoutX="111.0" layoutY="78.0" />
@@ -139,7 +153,7 @@
                                                                 <TableColumn fx:id="pricePerDayColumn" prefWidth="99.0" text="%pricePerDayColumn.caption" />
                                                                 <TableColumn fx:id="statusColumn" prefWidth="80.0" text="%statusColumn.caption" />
                                                                 <TableColumn fx:id="registrationNumberColumn" prefWidth="85.0" text="%registrationNumberColumn.caption" />
-                                                                <TableColumn fx:id="discountColumn" prefWidth="60.0" text="%discountColumn.caption" />
+                                                                <TableColumn fx:id="discountCarColumn" prefWidth="60.0" text="%discountCarColumn.caption" />
                                                             </columns>
                                                         </TableView>
                                                     </children>
@@ -148,17 +162,17 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="kierownikTab" text="Zniżki dla samochodów">
+                                <Tab styleClass="managerTab" text="Zniżki dla samochodów">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
                                                 <Pane layoutY="-7.0" prefHeight="510.0" prefWidth="757.0" />
                                                 <Label layoutX="26.0" layoutY="18.0" text="Samochody" />
-                                                <TableView layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
+                                                <TableView fx:id="carsDiscount" layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="Nr rej" />
-                                                        <TableColumn prefWidth="75.0" text="Cena" />
-                                                        <TableColumn prefWidth="75.0" text="Zniżka" />
+                                                        <TableColumn fx:id="registrationNumberColumnDiscount" prefWidth="95.0" text="%registrationNumberColumn.caption" />
+                                                        <TableColumn fx:id="pricePerDayColumnDiscount" prefWidth="95.0" text="%pricePerDayColumn.caption" />
+                                                        <TableColumn fx:id="discountCarColumnDiscount" prefWidth="95.0" text="%discountCarColumn.caption" />
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
@@ -169,7 +183,7 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="kierownikTab" text="Zniżki dla klientów">
+                                <Tab styleClass="managerTab" text="Zniżki dla klientów">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
@@ -178,11 +192,11 @@
                                                         <Label layoutX="484.0" layoutY="84.0" text="\%" />
                                                         <TextField layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
                                                         <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
-                                                        <TableView layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
+                                                        <TableView fx:id="clientsDiscount" layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
                                                             <columns>
-                                                                <TableColumn prefWidth="75.0" text="Nazwisko" />
-                                                                <TableColumn prefWidth="75.0" text="Imię" />
-                                                                <TableColumn prefWidth="75.0" text="Zniżki" />
+                                                                <TableColumn fx:id="firstNameColumnDiscount" prefWidth="95.0" text="%firstNameColumn.caption" />
+                                                                <TableColumn fx:id="lastNameColumnDiscount" prefWidth="95.0" text="%lastNameColumn.caption" />
+                                                                <TableColumn fx:id="discountClientColumnDiscount" prefWidth="95.0" text="%discountClientColumn.caption" />
                                                             </columns>
                                                         </TableView>
                                                         <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
@@ -193,7 +207,7 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="kierownikTab" text="Raport wypożyczeń">
+                                <Tab styleClass="managerTab" text="Raport wypożyczeń">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
@@ -216,13 +230,13 @@
                 </AnchorPane>
             </content>
         </Tab>
-        <Tab fx:id="pracownikTab" styleClass="pracownikTab" text="Pracownik">
+        <Tab fx:id="employeeTab" styleClass="employeeTab" text="Pracownik">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TabPane prefHeight="741.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
-                                <Tab styleClass="pracownikTab" text="Wypożycz">
+                                <Tab styleClass="employeeTab" text="Wypożycz">
                                     <content>
                                         <Pane prefHeight="200.0" prefWidth="200.0">
                                             <children>
@@ -242,7 +256,7 @@
                                         </Pane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="pracownikTab" text="Zwrot">
+                                <Tab styleClass="employeeTab" text="Zwrot">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
@@ -265,15 +279,21 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="pracownikTab" text="Klienci">
+                                <Tab styleClass="employeeTab" text="Klienci">
                                     <content>
                                         <Pane prefHeight="200.0" prefWidth="200.0">
                                             <children>
                                                 <Button layoutX="110.0" layoutY="243.0" mnemonicParsing="false" text="Usuń " />
                                                 <Label layoutX="260.0" layoutY="18.0" text="Klienci" />
-                                                <TableView layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
+                                                <TableView fx:id="clients" layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="75.0" text="Login" />
+                                                        <TableColumn fx:id="firstNameColumn" prefWidth="117.0" text="%firstNameColumn.caption" />
+                                                        <TableColumn fx:id="lastNameColumn" prefWidth="117.0" text="%lastNameColumn.caption" />
+                                                        <TableColumn fx:id="eMailColumn" prefWidth="117.0" text="%eMailColumn.caption" />
+                                                        <TableColumn fx:id="cityColumn" prefWidth="117.0" text="%cityColumn.caption" />
+                                                        <TableColumn fx:id="streetColumn" prefWidth="117.0" text="%streetColumn.caption" />
+                                                        <TableColumn fx:id="houseNumberColumn" prefWidth="60.0" text="%houseNumberColumn.caption" />
+                                                        <TableColumn fx:id="discountClientColumn" prefWidth="117.0" text="%discountClientColumn.caption" />
                                                     </columns>
                                                 </TableView>
                                                 <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
@@ -293,7 +313,7 @@
                                         </Pane>
                                     </content>
                                 </Tab>
-                                <Tab styleClass="pracownikTab" text="Faktura">
+                                <Tab styleClass="employeeTab" text="Faktura">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
@@ -302,7 +322,18 @@
                                                         <Button layoutX="41.0" layoutY="84.0" mnemonicParsing="false" text="Generuj" />
                                                     </children>
                                                 </Pane>
-                                                <TableView layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0" />
+                                                <TableView fx:id="hires" layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0" >
+                                                    <columns>
+                                                        <TableColumn fx:id="clientIdColumn" prefWidth="62.0" text="%clientIdColumn.caption" />
+                                                        <TableColumn fx:id="carIdColumn" prefWidth="62.0" text="%carIdColumn.caption" />
+                                                        <TableColumn fx:id="sellerIdColumn" prefWidth="62.0" text="%sellerIdColumn.caption" />
+                                                        <TableColumn fx:id="hireDateColumn" prefWidth="158.0" text="%hireDateColumn.caption" />
+                                                        <TableColumn fx:id="hireEndDateColumn" prefWidth="158.0" text="%hireEndDateColumn.caption" />
+                                                        <TableColumn fx:id="hireStatusColumn" prefWidth="82.0" text="%hireStatusColumn.caption" />
+                                                        <TableColumn fx:id="priceForHireColumn" prefWidth="82.0" text="%priceForHireColumn.caption" />
+                                                        <TableColumn fx:id="defaultInterestColumn" prefWidth="82.0" text="%defaultInterestColumn.caption" />
+                                                    </columns>
+                                                </TableView>
                                                 <Label layoutX="260.0" layoutY="18.0" text="Wypożyczenia" />
                                             </children>
                                         </AnchorPane>

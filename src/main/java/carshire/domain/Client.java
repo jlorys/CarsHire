@@ -12,15 +12,16 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 public class Client {
-    
-    @Id @GeneratedValue
-	private Long id;
+
+    @Id
+    @GeneratedValue
+    private Long id;
     private String firstName;
     private String lastName;
-	private String eMail;
+    private String eMail;
     private String city;
     private String street;
     private String houseNumber;
     private Integer discount;
-    
+
 }

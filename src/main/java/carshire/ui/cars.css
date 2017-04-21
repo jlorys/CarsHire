@@ -32,16 +32,16 @@
     -fx-background-color:   red;
 }
 
-.tab:selected{
-    -fx-border-color: blue;
-}
-
-.kierownikTab{
+.managerTab{
     -fx-background-color:   orange;
 }
 
-.pracownikTab{
+.employeeTab{
     -fx-background-color:   yellow;
+}
+
+.tab:selected{
+    -fx-border-color: blue;
 }
 
 .root {
