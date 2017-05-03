@@ -201,6 +201,8 @@ public class CarsPresenter {
             car.setRegistrationNumber(registrationNumber.getText());
             carTrackingService.save(car);
             cars.getItems().add(car);
+            carsDiscount.getItems().add(car);
+
 
         }
     }
@@ -210,6 +212,7 @@ public class CarsPresenter {
         Car car = cars.getSelectionModel().getSelectedItem();
         carTrackingService.delete(car);
         cars.getItems().remove(car);
+        carsDiscount.getItems().remove(car);
     }
 
     @FXML

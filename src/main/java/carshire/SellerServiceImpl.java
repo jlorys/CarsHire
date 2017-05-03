@@ -40,4 +40,9 @@ class SellerServiceImpl implements SellerService {
     public List<Seller> findAllManagers() {
         return sellerRepository.findAllManagers();
     }
+
+    @Override
+    public void deleteAll() {
+        sellerRepository.deleteAll();
+    }
 }

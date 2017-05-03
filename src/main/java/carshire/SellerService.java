@@ -13,5 +13,7 @@ public interface SellerService {
 
     public Seller save(Seller seller);
 
-    public void delete(Seller sellerr);
+    public void delete(Seller seller);
+    
+    public void deleteAll();
 }
