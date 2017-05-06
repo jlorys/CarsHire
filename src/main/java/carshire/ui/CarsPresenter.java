@@ -20,8 +20,10 @@ import carshire.domain.Hire.HireStatus;
 import carshire.domain.Seller;
 import carshire.domain.Seller.Rights;
 import java.time.LocalDateTime;
+import javafx.event.EventHandler;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 @Component
 public class CarsPresenter {
@@ -56,7 +58,7 @@ public class CarsPresenter {
     @FXML
     TableColumn<Car, String> registrationNumberColumn;
     @FXML
-    TextField manufacturer, model, yearOfManufacture, engineCapacity, vehicleMileage, pricePerDay, status, discountCar, registrationNumber;
+    TextField idCar, manufacturer, model, yearOfManufacture, engineCapacity, vehicleMileage, pricePerDay, status, discountCar, registrationNumber;
 
     //Manager tab - Cars discount subtab
     @FXML
@@ -190,6 +192,7 @@ public class CarsPresenter {
 
         } else {
             Car car = new Car();
+            if(!idCar.getText().isEmpty())car.setId(Long.parseLong(idCar.getText()));
             car.setManufacturer(manufacturer.getText());
             car.setModel(model.getText());
             car.setYearOfManufacture(Integer.parseInt(yearOfManufacture.getText()));
@@ -199,20 +202,48 @@ public class CarsPresenter {
             car.setStatus(CarStatus.Avalible);
             car.setDiscount(0);
             car.setRegistrationNumber(registrationNumber.getText());
+            deleteAllCarsView();
             carTrackingService.save(car);
-            cars.getItems().add(car);
-            carsDiscount.getItems().add(car);
-
-
+            addAllCarsView();
         }
     }
 
     @FXML
     public void btnDeleteCar() {
         Car car = cars.getSelectionModel().getSelectedItem();
+        deleteAllCarsView();
         carTrackingService.delete(car);
-        cars.getItems().remove(car);
-        carsDiscount.getItems().remove(car);
+        addAllCarsView();
+    }
+
+    @FXML
+    public void btnClearCar() {
+        idCar.clear();
+        manufacturer.clear();
+        model.clear();
+        yearOfManufacture.clear();
+        engineCapacity.clear();
+        vehicleMileage.clear();
+        pricePerDay.clear();
+        registrationNumber.clear();
+    }
+    
+    private void deleteAllCarsView() {
+        for (Car car : carTrackingService.findAllCars()) {
+            cars.getItems().remove(car);
+        }
+        for (Car car : carTrackingService.findAllCars()) {
+            carsDiscount.getItems().remove(car);
+        }
+    }
+
+    private void addAllCarsView() {
+        for (Car car : carTrackingService.findAllCars()) {
+            cars.getItems().add(car);
+        }
+        for (Car car : carTrackingService.findAllCars()) {
+            carsDiscount.getItems().add(car);
+        }
     }
 
     @FXML
@@ -260,6 +291,21 @@ public class CarsPresenter {
             hires.getItems().add(hire);
         }
         hires.getSelectionModel().selectFirst();
+
+        cars.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Car car = cars.getSelectionModel().getSelectedItem();
+                idCar.setText(car.getId().toString());
+                manufacturer.setText(car.getManufacturer());
+                model.setText(car.getModel());
+                yearOfManufacture.setText(car.getYearOfManufacture().toString());
+                engineCapacity.setText(car.getEngineCapacity().toString());
+                vehicleMileage.setText(car.getVehicleMileage().toString());
+                pricePerDay.setText(car.getPricePerDay().toString());
+                registrationNumber.setText(car.getRegistrationNumber());
+            }
+        });
     }
 
     private void configureCarsTable() {

@@ -47,7 +47,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle(windowTitle);
         stage.setScene(new Scene(carsView.getView()));
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
 
