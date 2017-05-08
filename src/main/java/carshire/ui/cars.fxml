@@ -27,50 +27,7 @@
         </Tab>
         <Tab fx:id="adminTab" styleClass="adminTab" text="Admin">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                        <TabPane layoutX="-1.0" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
-                            <tabs>
-                                <Tab styleClass="adminTab" text="Kierownicy">
-                                    <content>
-                                        <Pane prefHeight="200.0" prefWidth="200.0">
-                                            <children>
-                                                <TextField layoutX="100.0" layoutY="14.0" />
-                                                <Label layoutX="35.0" layoutY="18.0" text="Login" />
-                                                <TextField layoutX="100.0" layoutY="45.0" />
-                                                <TextField layoutX="100.0" layoutY="75.0" />
-                                                <TextField layoutX="100.0" layoutY="107.0" />
-                                                <TextField layoutX="100.0" layoutY="140.0" />
-                                                <TextField layoutX="100.0" layoutY="173.0" />
-                                                <Label layoutX="35.0" layoutY="49.0" text="Hasło" />
-                                                <Label layoutX="34.0" layoutY="79.0" text="e-mail" />
-                                                <Label layoutX="22.0" layoutY="111.0" text="Miejsowość" />
-                                                <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
-                                                <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
-                                                <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
-                                                <TableView fx:id="managers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="managerFirstNameColumn" prefWidth="83.0" text="%employeeFirstNameColumn.caption" />
-                                                        <TableColumn fx:id="managerLastNameColumn" prefWidth="83.0" text="%employeeLastNameColumn.caption" />
-                                                        <TableColumn fx:id="managerLoginColumn" prefWidth="83.0" text="%employeeLoginColumn.caption" />
-                                                        <TableColumn fx:id="managerEMailColumn" prefWidth="83.0" text="%employeeEMailColumn.caption" />
-                                                        <TableColumn fx:id="managerPasswordColumn" prefWidth="83.0" text="%employeePasswordColumn.caption" />
-                                                        <TableColumn fx:id="managerCityColumn" prefWidth="83.0" text="%employeeCityColumn.caption" />
-                                                        <TableColumn fx:id="managerStreetColumn" prefWidth="83.0" text="%employeeStreetColumn.caption" />
-                                                        <TableColumn fx:id="managerHouseNumberColumn" prefWidth="83.0" text="%employeeHouseNumberColumn.caption" />
-                                                        <TableColumn fx:id="managerRightsColumn" prefWidth="83.0" text="%employeeRightsColumn.caption" />
-                                                    </columns>
-                                                </TableView>
-                                                <Label layoutX="260.0" layoutY="18.0" text="Kierownicy w bazie" />
-                                                <Button layoutX="110.0" layoutY="243.0" mnemonicParsing="false" text="Usuń " />
-                                            </children>
-                                        </Pane>
-                                    </content>
-                                </Tab>
-                            </tabs>
-                        </TabPane>
-                    </children>
-                </AnchorPane>
+                <fx:include fx:id="tabAdminSubtabManagers" source="tabAdminSubtabManagers.fxml" />
             </content>
         </Tab>
         <Tab fx:id="managerTab" styleClass="managerTab" text="Kierownik">
@@ -81,133 +38,22 @@
                             <tabs>
                                 <Tab styleClass="managerTab" text="Pracownicy">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="589.0" prefWidth="1024.0">
-                                            <children>
-                                                <Pane layoutX="4.0" layoutY="-1.0" prefHeight="712.0" prefWidth="1018.0">
-                                                    <children>
-                                                        <TextField layoutX="100.0" layoutY="14.0" />
-                                                        <Label layoutX="35.0" layoutY="18.0" text="Login" />
-                                                        <TextField layoutX="100.0" layoutY="45.0" />
-                                                        <TextField layoutX="100.0" layoutY="75.0" />
-                                                        <TextField layoutX="100.0" layoutY="107.0" />
-                                                        <TextField layoutX="100.0" layoutY="140.0" />
-                                                        <TextField layoutX="100.0" layoutY="173.0" />
-                                                        <Label layoutX="35.0" layoutY="49.0" text="Hasło" />
-                                                        <Label layoutX="34.0" layoutY="79.0" text="e-mail" />
-                                                        <Label layoutX="22.0" layoutY="111.0" text="Miejsowość" />
-                                                        <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
-                                                        <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
-                                                        <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
-                                                        <TableView fx:id="employees" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
-                                                            <columns>
-                                                                <TableColumn fx:id="employeeFirstNameColumn" prefWidth="83.0" text="%employeeFirstNameColumn.caption" />
-                                                                <TableColumn fx:id="employeeLastNameColumn" prefWidth="83.0" text="%employeeLastNameColumn.caption" />
-                                                                <TableColumn fx:id="employeeLoginColumn" prefWidth="83.0" text="%employeeLoginColumn.caption" />
-                                                                <TableColumn fx:id="employeeEMailColumn" prefWidth="83.0" text="%employeeEMailColumn.caption" />
-                                                                <TableColumn fx:id="employeePasswordColumn" prefWidth="83.0" text="%employeePasswordColumn.caption" />
-                                                                <TableColumn fx:id="employeeCityColumn" prefWidth="83.0" text="%employeeCityColumn.caption" />
-                                                                <TableColumn fx:id="employeeStreetColumn" prefWidth="83.0" text="%employeeStreetColumn.caption" />
-                                                                <TableColumn fx:id="employeeHouseNumberColumn" prefWidth="83.0" text="%employeeHouseNumberColumn.caption" />
-                                                                <TableColumn fx:id="employeeRightsColumn" prefWidth="83.0" text="%employeeRightsColumn.caption" />
-                                                            </columns>
-                                                        </TableView>
-                                                        <Label layoutX="260.0" layoutY="18.0" text="Pracownicy w bazie" />
-                                                        <Button layoutX="110.0" layoutY="243.0" mnemonicParsing="false" text="Usuń " />
-                                                    </children>
-                                                </Pane>
-                                            </children>
-                                        </AnchorPane>
+                                         <fx:include fx:id="tabManagerSubtabEmployees" source="TabManagerSubtabEmployees.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="managerTab" text="Samochody">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="693.0" prefWidth="1024.0">
-                                            <children>
-                                                <Pane prefHeight="507.0" prefWidth="757.0">
-                                                    <children>
-                                                        <Label layoutX="42.0" layoutY="18.0" text="Id" />
-                                                        <TextField disable="true" fx:id="idCar" layoutX="110.0" layoutY="14.0" />
-                                                        <Label layoutX="20.0" layoutY="47.0" text="Producent" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                                        <TextField fx:id="manufacturer" layoutX="110.0" layoutY="43.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <Label layoutX="30.0" layoutY="79.0" text="Model" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                                                        <TextField fx:id="model" layoutX="110.0" layoutY="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <Button layoutX="21.0" layoutY="339.0" onAction="#btnAddCar" styleClass="record-sales" text="Dodaj samochód" />
-                                                        <Button layoutX="21.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnDeleteCar" styleClass="record-sales" text="Usuń" />
-                                                        <Button layoutX="21.0" layoutY="289.0" mnemonicParsing="false" onAction="#btnClearCar" styleClass="record-sales" text="Wyczyść pola" />
-                                                        <Label layoutX="260.0" layoutY="18.0" text="Samochody w bazie" />
-                                                        <Label layoutX="11.0" layoutY="111.0" text="Rok produkcji" />
-                                                        <TextField fx:id="yearOfManufacture" layoutX="110.0" layoutY="107.0" />
-                                                        <Label layoutY="147.0" text="Pojemność silnika" />
-                                                        <TextField fx:id="engineCapacity" layoutX="110.0" layoutY="143.0" />
-                                                        <TextField fx:id="vehicleMileage" layoutX="110.0" layoutY="177.0" />
-                                                        <Label layoutX="24.0" layoutY="181.0" text="Przebieg" />
-                                                        <Label layoutX="10.0" layoutY="214.0" text="Cena za dzień" />
-                                                        <TextField fx:id="pricePerDay" layoutX="110.0" layoutY="210.0" />
-                                                        <TextField fx:id="registrationNumber" layoutX="111.0" layoutY="244.0" />
-                                                        <Label layoutX="6.0" layoutY="248.0" text="Nr rejestracyjny" />
-                                                        
-                                                        <TableView fx:id="cars" layoutX="263.0" layoutY="43.0" prefHeight="661.0" prefWidth="745.0">
-                                                            <columns>
-                                                                <TableColumn fx:id="manufacturerColumn" prefWidth="117.0" text="%manufacturerColumn.caption" />
-                                                                <TableColumn fx:id="modelColumn" prefWidth="117.0" text="%modelColumn.caption" />
-                                                                <TableColumn fx:id="yearOfManufactureColumn" prefWidth="55.0" text="%yearOfManufactureColumn.caption" />
-                                                                <TableColumn fx:id="engineCapacityColumn" prefWidth="40.0" text="%engineCapacityColumn.caption" />
-                                                                <TableColumn fx:id="vehicleMileageColumn" prefWidth="99.0" text="%vehicleMileageColumn.caption" />
-                                                                <TableColumn fx:id="pricePerDayColumn" prefWidth="99.0" text="%pricePerDayColumn.caption" />
-                                                                <TableColumn fx:id="statusColumn" prefWidth="80.0" text="%statusColumn.caption" />
-                                                                <TableColumn fx:id="registrationNumberColumn" prefWidth="85.0" text="%registrationNumberColumn.caption" />
-                                                                <TableColumn fx:id="discountCarColumn" prefWidth="60.0" text="%discountCarColumn.caption" />
-                                                            </columns>
-                                                        </TableView>
-                                                    </children>
-                                                </Pane>
-                                            </children>
-                                        </AnchorPane>
+                                        <fx:include fx:id="tabManagerSubtabCars" source="TabManagerSubtabCars.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="managerTab" text="Zniżki dla samochodów">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                                <Pane layoutY="-7.0" prefHeight="510.0" prefWidth="757.0" />
-                                                <Label layoutX="26.0" layoutY="18.0" text="Samochody" />
-                                                <TableView fx:id="carsDiscount" layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="registrationNumberColumnDiscount" prefWidth="95.0" text="%registrationNumberColumn.caption" />
-                                                        <TableColumn fx:id="pricePerDayColumnDiscount" prefWidth="95.0" text="%pricePerDayColumn.caption" />
-                                                        <TableColumn fx:id="discountCarColumnDiscount" prefWidth="95.0" text="%discountCarColumn.caption" />
-                                                    </columns>
-                                                </TableView>
-                                                <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
-                                                <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
-                                                <TextField layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
-                                                <Label layoutX="484.0" layoutY="84.0" text="\%" />
-                                            </children>
-                                        </AnchorPane>
+                                        <fx:include fx:id="tabManagerSubtabCarsDiscount" source="TabManagerSubtabCarsDiscount.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="managerTab" text="Zniżki dla klientów">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                                <Pane layoutY="-6.0" prefHeight="504.0" prefWidth="767.0">
-                                                    <children>
-                                                        <Label layoutX="484.0" layoutY="84.0" text="\%" />
-                                                        <TextField layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
-                                                        <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
-                                                        <TableView fx:id="clientsDiscount" layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
-                                                            <columns>
-                                                                <TableColumn fx:id="firstNameColumnDiscount" prefWidth="95.0" text="%firstNameColumn.caption" />
-                                                                <TableColumn fx:id="lastNameColumnDiscount" prefWidth="95.0" text="%lastNameColumn.caption" />
-                                                                <TableColumn fx:id="discountClientColumnDiscount" prefWidth="95.0" text="%discountClientColumn.caption" />
-                                                            </columns>
-                                                        </TableView>
-                                                        <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
-                                                    </children>
-                                                </Pane>
-                                                <Label layoutX="26.0" layoutY="18.0" text="Klienci" />
-                                            </children>
-                                        </AnchorPane>
+                                        <fx:include fx:id="tabManagerSubtabClientsDiscount" source="TabManagerSubtabClientsDiscount.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="managerTab" text="Raport wypożyczeń">
@@ -284,62 +130,12 @@
                                 </Tab>
                                 <Tab styleClass="employeeTab" text="Klienci">
                                     <content>
-                                        <Pane prefHeight="200.0" prefWidth="200.0">
-                                            <children>
-                                                <Button layoutX="110.0" layoutY="243.0" mnemonicParsing="false" text="Usuń " />
-                                                <Label layoutX="260.0" layoutY="18.0" text="Klienci" />
-                                                <TableView fx:id="clients" layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="firstNameColumn" prefWidth="117.0" text="%firstNameColumn.caption" />
-                                                        <TableColumn fx:id="lastNameColumn" prefWidth="117.0" text="%lastNameColumn.caption" />
-                                                        <TableColumn fx:id="eMailColumn" prefWidth="117.0" text="%eMailColumn.caption" />
-                                                        <TableColumn fx:id="cityColumn" prefWidth="117.0" text="%cityColumn.caption" />
-                                                        <TableColumn fx:id="streetColumn" prefWidth="117.0" text="%streetColumn.caption" />
-                                                        <TableColumn fx:id="houseNumberColumn" prefWidth="60.0" text="%houseNumberColumn.caption" />
-                                                        <TableColumn fx:id="discountClientColumn" prefWidth="117.0" text="%discountClientColumn.caption" />
-                                                    </columns>
-                                                </TableView>
-                                                <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
-                                                <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
-                                                <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
-                                                <Label layoutX="22.0" layoutY="111.0" text="Miejsowość" />
-                                                <Label layoutX="34.0" layoutY="79.0" text="e-mail" />
-                                                <Label layoutX="25.0" layoutY="49.0" text="Nazwisko" />
-                                                <TextField layoutX="100.0" layoutY="173.0" />
-                                                <TextField layoutX="100.0" layoutY="140.0" />
-                                                <TextField layoutX="100.0" layoutY="107.0" />
-                                                <TextField layoutX="100.0" layoutY="75.0" />
-                                                <TextField layoutX="100.0" layoutY="45.0" />
-                                                <Label layoutX="35.0" layoutY="18.0" text="Imię" />
-                                                <TextField layoutX="100.0" layoutY="14.0" />
-                                            </children>
-                                        </Pane>
+                                        <fx:include fx:id="tabEmployeeSubtabClients" source="tabEmployeeSubtabClients.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="employeeTab" text="Faktura">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                                <Pane prefHeight="509.0" prefWidth="757.0">
-                                                    <children>
-                                                        <Button layoutX="41.0" layoutY="84.0" mnemonicParsing="false" text="Generuj" />
-                                                    </children>
-                                                </Pane>
-                                                <TableView fx:id="hires" layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="clientIdColumn" prefWidth="62.0" text="%clientIdColumn.caption" />
-                                                        <TableColumn fx:id="carIdColumn" prefWidth="62.0" text="%carIdColumn.caption" />
-                                                        <TableColumn fx:id="sellerIdColumn" prefWidth="62.0" text="%sellerIdColumn.caption" />
-                                                        <TableColumn fx:id="hireDateColumn" prefWidth="158.0" text="%hireDateColumn.caption" />
-                                                        <TableColumn fx:id="hireEndDateColumn" prefWidth="158.0" text="%hireEndDateColumn.caption" />
-                                                        <TableColumn fx:id="hireStatusColumn" prefWidth="82.0" text="%hireStatusColumn.caption" />
-                                                        <TableColumn fx:id="priceForHireColumn" prefWidth="82.0" text="%priceForHireColumn.caption" />
-                                                        <TableColumn fx:id="defaultInterestColumn" prefWidth="82.0" text="%defaultInterestColumn.caption" />
-                                                    </columns>
-                                                </TableView>
-                                                <Label layoutX="260.0" layoutY="18.0" text="Wypożyczenia" />
-                                            </children>
-                                        </AnchorPane>
+                                        <fx:include fx:id="tabEmployeeSubtabInvoice" source="tabEmployeeSubtabInvoice.fxml" />
                                     </content>
                                 </Tab>
                             </tabs>

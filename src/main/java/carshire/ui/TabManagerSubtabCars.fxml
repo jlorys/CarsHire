@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="693.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabManagerSubtabCars">
+    <children>
+        <Pane prefHeight="507.0" prefWidth="757.0">
+            <children>
+                <Label layoutX="42.0" layoutY="18.0" text="Id" />
+                <TextField disable="true" fx:id="id" layoutX="110.0" layoutY="14.0" />
+                <Label layoutX="20.0" layoutY="47.0" text="Producent" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="manufacturer" layoutX="110.0" layoutY="43.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label layoutX="30.0" layoutY="79.0" text="Model" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="model" layoutX="110.0" layoutY="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button layoutX="21.0" layoutY="339.0" onAction="#btnAddCar" styleClass="record-sales" text="Dodaj samochód" />
+                <Button layoutX="21.0" layoutY="389.0" mnemonicParsing="false" onAction="#btnDeleteCar" styleClass="record-sales" text="Usuń" />
+                <Button layoutX="21.0" layoutY="289.0" mnemonicParsing="false" onAction="#btnClearCar" styleClass="record-sales" text="Wyczyść pola" />
+                <Label layoutX="260.0" layoutY="18.0" text="Samochody w bazie" />
+                <Label layoutX="11.0" layoutY="111.0" text="Rok produkcji" />
+                <TextField fx:id="yearOfManufacture" layoutX="110.0" layoutY="107.0" />
+                <Label layoutY="147.0" text="Pojemność silnika" />
+                <TextField fx:id="engineCapacity" layoutX="110.0" layoutY="143.0" />
+                <TextField fx:id="vehicleMileage" layoutX="110.0" layoutY="177.0" />
+                <Label layoutX="24.0" layoutY="181.0" text="Przebieg" />
+                <Label layoutX="10.0" layoutY="214.0" text="Cena za dzień" />
+                <TextField fx:id="pricePerDay" layoutX="110.0" layoutY="210.0" />
+                <TextField fx:id="registrationNumber" layoutX="111.0" layoutY="244.0" />
+                <Label layoutX="6.0" layoutY="248.0" text="Nr rejestracyjny" />                                   
+                <TableView fx:id="cars" layoutX="263.0" layoutY="43.0" prefHeight="661.0" prefWidth="745.0">
+                    <columns>
+                        <TableColumn fx:id="manufacturerColumn" prefWidth="117.0" text="%manufacturerColumn.caption" />
+                        <TableColumn fx:id="modelColumn" prefWidth="117.0" text="%modelColumn.caption" />
+                        <TableColumn fx:id="yearOfManufactureColumn" prefWidth="55.0" text="%yearOfManufactureColumn.caption" />
+                        <TableColumn fx:id="engineCapacityColumn" prefWidth="40.0" text="%engineCapacityColumn.caption" />
+                        <TableColumn fx:id="vehicleMileageColumn" prefWidth="99.0" text="%vehicleMileageColumn.caption" />
+                        <TableColumn fx:id="pricePerDayColumn" prefWidth="99.0" text="%pricePerDayColumn.caption" />
+                        <TableColumn fx:id="statusColumn" prefWidth="80.0" text="%statusColumn.caption" />
+                        <TableColumn fx:id="registrationNumberColumn" prefWidth="85.0" text="%registrationNumberColumn.caption" />
+                        <TableColumn fx:id="discountCarColumn" prefWidth="60.0" text="%discountCarColumn.caption" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

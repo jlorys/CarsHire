@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabEmployeeSubtabInvoice">
+    <children>
+        <Pane prefHeight="509.0" prefWidth="757.0">
+            <children>
+                <Button layoutX="41.0" layoutY="84.0" mnemonicParsing="false" text="Generuj" />
+            </children>
+        </Pane>
+        <Label layoutX="260.0" layoutY="18.0" text="Wypożyczenia" />
+        <TableView fx:id="hires" layoutX="260.0" layoutY="41.0" prefHeight="663.0" prefWidth="757.0">
+            <columns>
+                <TableColumn fx:id="clientIdColumn" prefWidth="62.0" text="%clientIdColumn.caption" />
+                <TableColumn fx:id="carIdColumn" prefWidth="62.0" text="%carIdColumn.caption" />
+                <TableColumn fx:id="sellerIdColumn" prefWidth="62.0" text="%sellerIdColumn.caption" />
+                <TableColumn fx:id="dateColumn" prefWidth="158.0" text="%hireDateColumn.caption" />
+                <TableColumn fx:id="endDateColumn" prefWidth="158.0" text="%hireEndDateColumn.caption" />
+                <TableColumn fx:id="statusColumn" prefWidth="82.0" text="%hireStatusColumn.caption" />
+                <TableColumn fx:id="priceForHireColumn" prefWidth="82.0" text="%priceForHireColumn.caption" />
+                <TableColumn fx:id="defaultInterestColumn" prefWidth="82.0" text="%defaultInterestColumn.caption" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

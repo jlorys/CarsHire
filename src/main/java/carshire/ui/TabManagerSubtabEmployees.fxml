@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="589.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabManagerSubtabEmployees">
+    <children>
+        <Pane layoutX="4.0" layoutY="-1.0" prefHeight="712.0" prefWidth="1018.0">
+            <children>
+                <TextField layoutX="100.0" layoutY="14.0" />
+                <Label layoutX="35.0" layoutY="18.0" text="Login" />
+                <TextField layoutX="100.0" layoutY="45.0" />
+                <TextField layoutX="100.0" layoutY="75.0" />
+                <TextField layoutX="100.0" layoutY="107.0" />
+                <TextField layoutX="100.0" layoutY="140.0" />
+                <TextField layoutX="100.0" layoutY="173.0" />
+                <Label layoutX="35.0" layoutY="49.0" text="Hasło" />
+                <Label layoutX="34.0" layoutY="79.0" text="e-mail" />
+                <Label layoutX="22.0" layoutY="111.0" text="Miejsowość" />
+                <Label layoutX="35.0" layoutY="144.0" text="Ulica" />
+                <Label layoutX="18.0" layoutY="177.0" text="numer domu" />
+                <Button layoutX="43.0" layoutY="243.0" mnemonicParsing="false" text="Dodaj" />
+                <Label layoutX="260.0" layoutY="18.0" text="Pracownicy w bazie" />
+                <Button layoutX="110.0" layoutY="243.0" mnemonicParsing="false" text="Usuń " />
+                <TableView fx:id="sellers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
+                    <columns>
+                        <TableColumn fx:id="firstNameColumn" prefWidth="83.0" text="%employeeFirstNameColumn.caption" />
+                        <TableColumn fx:id="lastNameColumn" prefWidth="83.0" text="%employeeLastNameColumn.caption" />
+                        <TableColumn fx:id="loginColumn" prefWidth="83.0" text="%employeeLoginColumn.caption" />
+                        <TableColumn fx:id="eMailColumn" prefWidth="83.0" text="%employeeEMailColumn.caption" />
+                        <TableColumn fx:id="passwordColumn" prefWidth="83.0" text="%employeePasswordColumn.caption" />
+                        <TableColumn fx:id="cityColumn" prefWidth="83.0" text="%employeeCityColumn.caption" />
+                        <TableColumn fx:id="streetColumn" prefWidth="83.0" text="%employeeStreetColumn.caption" />
+                        <TableColumn fx:id="houseNumberColumn" prefWidth="83.0" text="%employeeHouseNumberColumn.caption" />
+                        <TableColumn fx:id="rightsColumn" prefWidth="83.0" text="%employeeRightsColumn.caption" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabManagerSubtabCarsDiscount">
+    <children>
+        <Pane layoutY="-7.0" prefHeight="510.0" prefWidth="757.0" />
+        <Label layoutX="26.0" layoutY="18.0" text="Samochody" />
+        <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
+        <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
+        <TextField layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
+        <Label layoutX="484.0" layoutY="84.0" text="\%" />
+        <TableView fx:id="cars" layoutX="22.0" layoutY="45.0" prefHeight="657.0" prefWidth="302.0">
+            <columns>
+                <TableColumn fx:id="registrationNumberColumn" prefWidth="95.0" text="%registrationNumberColumn.caption" />
+                <TableColumn fx:id="pricePerDayColumn" prefWidth="95.0" text="%pricePerDayColumn.caption" />
+                <TableColumn fx:id="discountCarColumn" prefWidth="95.0" text="%discountCarColumn.caption" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
