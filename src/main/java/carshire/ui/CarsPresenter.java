@@ -77,6 +77,13 @@ public class CarsPresenter {
                 tabAdminSubtabManagers.fillTextFields();
             }
         });
+        
+        tabManagerSubtabEmployees.sellers.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabManagerSubtabEmployees.fillTextFields();
+            }
+        });
     }
 
     void fillHiresTables() {
@@ -100,6 +107,7 @@ public class CarsPresenter {
     
     void deleteAllSellersViews() {
         tabAdminSubtabManagers.deleteAllViewRecords();
+        tabManagerSubtabEmployees.deleteAllViewRecords();
     }
 
     void deleteAllCarsViews() {
@@ -109,6 +117,7 @@ public class CarsPresenter {
     
     void addAllSellersViews() {
         tabAdminSubtabManagers.addAllViewRecords();
+        tabManagerSubtabEmployees.addAllViewRecords();
     }
 
     void addAllCarsViews() {
