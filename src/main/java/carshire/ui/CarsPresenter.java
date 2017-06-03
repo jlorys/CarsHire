@@ -70,18 +70,25 @@ public class CarsPresenter {
                 tabManagerSubtabCars.fillTextFields();
             }
         });
-        
+
         tabAdminSubtabManagers.sellers.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 tabAdminSubtabManagers.fillTextFields();
             }
         });
-        
+
         tabManagerSubtabEmployees.sellers.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 tabManagerSubtabEmployees.fillTextFields();
+            }
+        });
+
+        tabManagerSubtabClientsDiscount.clients.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabManagerSubtabClientsDiscount.fillTextFields();
             }
         });
     }
@@ -104,7 +111,7 @@ public class CarsPresenter {
         tabManagerSubtabCars.fillTable();
         tabManagerSubtabCarsDiscount.fillTable();
     }
-    
+
     void deleteAllSellersViews() {
         tabAdminSubtabManagers.deleteAllViewRecords();
         tabManagerSubtabEmployees.deleteAllViewRecords();
@@ -114,7 +121,11 @@ public class CarsPresenter {
         tabManagerSubtabCars.deleteAllViewRecords();
         tabManagerSubtabCarsDiscount.deleteAllViewRecords();
     }
-    
+
+    void deleteAllClientsViews() {
+        tabManagerSubtabClientsDiscount.deleteAllViewRecords();
+    }
+
     void addAllSellersViews() {
         tabAdminSubtabManagers.addAllViewRecords();
         tabManagerSubtabEmployees.addAllViewRecords();
@@ -123,6 +134,10 @@ public class CarsPresenter {
     void addAllCarsViews() {
         tabManagerSubtabCars.addAllViewRecords();
         tabManagerSubtabCarsDiscount.addAllViewRecords();
+    }
+    
+    void addAllClientsViews() {
+        tabManagerSubtabClientsDiscount.addAllViewRecords();
     }
 
     @FXML

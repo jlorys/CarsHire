@@ -10,9 +10,10 @@
         <Pane layoutY="-6.0" prefHeight="504.0" prefWidth="767.0">
             <children>
                 <Label layoutX="484.0" layoutY="84.0" text="\%" />
-                <TextField layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
+                <TextField disable="true" fx:id="id" layoutX="433.0" layoutY="60.0" prefHeight="22.0" prefWidth="39.0" />
+                <TextField fx:id="discountClient" layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
                 <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
-                <Button layoutX="429.0" layoutY="118.0" mnemonicParsing="false" text="Rabat" />
+                <Button layoutX="429.0" layoutY="118.0" onAction="#btnAddDiscountClient" mnemonicParsing="false" text="Rabat" />
             </children>
         </Pane>
         <Label layoutX="26.0" layoutY="18.0" text="Klienci" />

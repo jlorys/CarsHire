@@ -2,6 +2,7 @@ package carshire.ui;
 
 import carshire.ClientService;
 import carshire.domain.Client;
+import carshire.domain.Seller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,7 +33,7 @@ public class TabManagerSubtabClientsDiscount {
     @FXML
     TableColumn<Client, Integer> discountClientColumn;
     @FXML
-    TextField firstName, lastName, discountClient;
+    TextField id, discountClient;
 
     void configureTable() {
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<Client, String>("firstName"));
@@ -46,5 +47,35 @@ public class TabManagerSubtabClientsDiscount {
             clients.getItems().add(client);
         }
         clients.getSelectionModel().selectFirst();
+    }
+
+    public void fillTextFields() {
+        Client client = clients.getSelectionModel().getSelectedItem();
+        id.setText(client.getId().toString());
+        discountClient.setText(client.getDiscount().toString());
+    }
+
+    @FXML
+    public void btnAddDiscountClient() {
+            Client client = new Client();
+            client = service.findOne(Long.parseLong(id.getText()));
+            
+            client.setDiscount(Integer.parseInt(discountClient.getText()));
+
+            main.deleteAllClientsViews();
+            service.save(client);
+            main.addAllClientsViews();
+    }
+    
+    void deleteAllViewRecords() {
+        for (Client client : service.findAllClients()) {
+            clients.getItems().remove(client);
+        }
+    }
+
+    void addAllViewRecords() {
+        for (Client client : service.findAllClients()) {
+            clients.getItems().add(client);
+        }
     }
 }
