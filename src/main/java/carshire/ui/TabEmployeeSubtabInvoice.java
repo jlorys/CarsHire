@@ -2,6 +2,7 @@ package carshire.ui;
 
 import carshire.HireService;
 import carshire.domain.Hire;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -39,9 +40,9 @@ public class TabEmployeeSubtabInvoice {
     @FXML
     TableColumn<Hire, Hire.HireStatus> statusColumn;
     @FXML
-    TableColumn<Hire, Float> priceForHireColumn;
+    TableColumn<Hire, BigDecimal> priceForHireColumn;
     @FXML
-    TableColumn<Hire, Float> defaultInterestColumn;
+    TableColumn<Hire, BigDecimal> defaultInterestColumn;
     @FXML
     TextField clientId, carId, sellerId, date, endDate, status, priceForHire, defaultInterest;
 
@@ -52,8 +53,8 @@ public class TabEmployeeSubtabInvoice {
         dateColumn.setCellValueFactory(new PropertyValueFactory<Hire, LocalDateTime>("hireDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<Hire, LocalDateTime>("hireEndDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<Hire, Hire.HireStatus>("status"));
-        priceForHireColumn.setCellValueFactory(new PropertyValueFactory<Hire, Float>("priceForHire"));
-        defaultInterestColumn.setCellValueFactory(new PropertyValueFactory<Hire, Float>("defaultInterest"));
+        priceForHireColumn.setCellValueFactory(new PropertyValueFactory<Hire, BigDecimal>("priceForHire"));
+        defaultInterestColumn.setCellValueFactory(new PropertyValueFactory<Hire, BigDecimal>("defaultInterest"));
     }
 
     void fillTable() {

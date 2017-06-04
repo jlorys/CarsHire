@@ -32,7 +32,7 @@ class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findOne(Long id) {
-        return clientRepository.findOne(id);
+    public Client findById(final Long id) {
+        return clientRepository.findById(id);
     }
 }

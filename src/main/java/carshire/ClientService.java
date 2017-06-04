@@ -11,5 +11,5 @@ public interface ClientService {
 
     public void delete(Client client);
     
-    public Client findOne(Long id);
+    public Client findById(final Long id);
 }

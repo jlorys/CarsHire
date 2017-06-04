@@ -10,4 +10,6 @@ public interface CarService {
     public Car save(Car car);
 
     public void delete(Car car);
+    
+    public Car findById(final Long id);
 }

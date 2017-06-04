@@ -31,12 +31,13 @@
                 <Label layoutX="6.0" layoutY="248.0" text="Nr rejestracyjny" />                                   
                 <TableView fx:id="cars" layoutX="263.0" layoutY="43.0" prefHeight="661.0" prefWidth="745.0">
                     <columns>
-                        <TableColumn fx:id="manufacturerColumn" prefWidth="117.0" text="%manufacturerColumn.caption" />
-                        <TableColumn fx:id="modelColumn" prefWidth="117.0" text="%modelColumn.caption" />
+                        <TableColumn fx:id="manufacturerColumn" prefWidth="80.0" text="%manufacturerColumn.caption" />
+                        <TableColumn fx:id="modelColumn" prefWidth="80.0" text="%modelColumn.caption" />
                         <TableColumn fx:id="yearOfManufactureColumn" prefWidth="55.0" text="%yearOfManufactureColumn.caption" />
                         <TableColumn fx:id="engineCapacityColumn" prefWidth="40.0" text="%engineCapacityColumn.caption" />
                         <TableColumn fx:id="vehicleMileageColumn" prefWidth="99.0" text="%vehicleMileageColumn.caption" />
-                        <TableColumn fx:id="pricePerDayColumn" prefWidth="99.0" text="%pricePerDayColumn.caption" />
+                        <TableColumn fx:id="pricePerDayColumn" prefWidth="89.0" text="%pricePerDayColumn.caption" />
+                        <TableColumn fx:id="pricePerDayAfterDiscountColumn" prefWidth="89.0" text="%pricePerDayAfterDiscountColumn.caption" />
                         <TableColumn fx:id="statusColumn" prefWidth="80.0" text="%statusColumn.caption" />
                         <TableColumn fx:id="registrationNumberColumn" prefWidth="85.0" text="%registrationNumberColumn.caption" />
                         <TableColumn fx:id="discountCarColumn" prefWidth="60.0" text="%discountCarColumn.caption" />

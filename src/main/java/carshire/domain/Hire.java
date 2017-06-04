@@ -1,5 +1,6 @@
 package carshire.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,6 @@ public class Hire {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private HireStatus status;
-    private Float priceForHire;
-    private Float defaultInterest;
+    private BigDecimal priceForHire;
+    private BigDecimal defaultInterest;
 }

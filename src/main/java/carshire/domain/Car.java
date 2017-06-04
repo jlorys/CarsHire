@@ -1,5 +1,6 @@
 package carshire.domain;
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -31,7 +32,8 @@ public class Car {
     private Integer yearOfManufacture;
     private Float engineCapacity;
     private Integer vehicleMileage;
-    private Float pricePerDay;
+    private BigDecimal pricePerDay;
+    private BigDecimal pricePerDayAfterDiscount;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private CarStatus status;

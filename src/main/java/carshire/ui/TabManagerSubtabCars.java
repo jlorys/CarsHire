@@ -2,6 +2,8 @@ package carshire.ui;
 
 import carshire.CarService;
 import carshire.domain.Car;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -36,7 +38,9 @@ public class TabManagerSubtabCars {
     @FXML
     TableColumn<Car, Integer> vehicleMileageColumn;
     @FXML
-    TableColumn<Car, Float> pricePerDayColumn;
+    TableColumn<Car, BigDecimal> pricePerDayColumn;
+    @FXML
+    TableColumn<Car, BigInteger> pricePerDayAfterDiscountColumn;
     @FXML
     TableColumn<Car, Car.CarStatus> statusColumn;
     @FXML
@@ -48,22 +52,29 @@ public class TabManagerSubtabCars {
 
     @FXML
     public void btnAddCar() {
-        if (manufacturer.getText().isEmpty() || model.getText().isEmpty()) {
+        if (!manufacturer.getText().isEmpty() 
+                || !model.getText().isEmpty() 
+                || !pricePerDay.getText().isEmpty()) {
 
-        } else {
             Car car = new Car();
+            
             if (!id.getText().isEmpty()) {
-                car.setId(Long.parseLong(id.getText()));
+                car = service.findById(Long.parseLong(id.getText()));
+            }else {
+                //In case of creating new car
+                car.setStatus(Car.CarStatus.Avalible);
+                car.setDiscount(0);
+                car.setPricePerDayAfterDiscount(new BigDecimal(pricePerDay.getText()));
             }
+
             car.setManufacturer(manufacturer.getText());
             car.setModel(model.getText());
             car.setYearOfManufacture(Integer.parseInt(yearOfManufacture.getText()));
             car.setEngineCapacity(Float.parseFloat(engineCapacity.getText()));
             car.setVehicleMileage(Integer.parseInt(vehicleMileage.getText()));
-            car.setPricePerDay(Float.parseFloat(pricePerDay.getText()));
-            car.setStatus(Car.CarStatus.Avalible);
-            car.setDiscount(0);
+            car.setPricePerDay(new BigDecimal(pricePerDay.getText()));
             car.setRegistrationNumber(registrationNumber.getText());
+            
             main.deleteAllCarsViews();
             service.save(car);
             main.addAllCarsViews();
@@ -113,7 +124,8 @@ public class TabManagerSubtabCars {
         yearOfManufactureColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("yearOfManufacture"));
         engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<Car, Float>("engineCapacity"));
         vehicleMileageColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("vehicleMileage"));
-        pricePerDayColumn.setCellValueFactory(new PropertyValueFactory<Car, Float>("pricePerDay"));
+        pricePerDayColumn.setCellValueFactory(new PropertyValueFactory<Car, BigDecimal>("pricePerDay"));
+        pricePerDayAfterDiscountColumn.setCellValueFactory(new PropertyValueFactory<Car, BigInteger>("pricePerDayAfterDiscount"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<Car, Car.CarStatus>("status"));
         discountCarColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("discount"));
         registrationNumberColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("registrationNumber"));

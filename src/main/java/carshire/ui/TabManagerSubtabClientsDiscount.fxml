@@ -9,11 +9,14 @@
     <children>
         <Pane layoutY="-6.0" prefHeight="504.0" prefWidth="767.0">
             <children>
-                <Label layoutX="484.0" layoutY="84.0" text="\%" />
-                <TextField disable="true" fx:id="id" layoutX="433.0" layoutY="60.0" prefHeight="22.0" prefWidth="39.0" />
-                <TextField fx:id="discountClient" layoutX="433.0" layoutY="80.0" prefHeight="22.0" prefWidth="39.0" />
+                <Pane layoutY="-7.0" prefHeight="510.0" prefWidth="757.0">
+                    <children>
+                        <Slider fx:id="discountSlider" layoutX="340.0" layoutY="111.0" prefWidth="680.0" />
+                    </children>
+                </Pane>
                 <Label layoutX="341.0" layoutY="84.0" text="Dodaj zniżkę" />
-                <Button layoutX="429.0" layoutY="118.0" onAction="#btnAddDiscountClient" mnemonicParsing="false" text="Rabat" />
+                <TextField fx:id="id" disable="true" layoutX="433.0" layoutY="60.0" prefHeight="22.0" prefWidth="39.0" />
+                <Button layoutX="425.0" layoutY="135.0" mnemonicParsing="false" onAction="#btnAddDiscountClient" text="Rabat" />
             </children>
         </Pane>
         <Label layoutX="26.0" layoutY="18.0" text="Klienci" />

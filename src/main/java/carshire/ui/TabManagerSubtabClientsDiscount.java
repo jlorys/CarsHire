@@ -2,8 +2,9 @@ package carshire.ui;
 
 import carshire.ClientService;
 import carshire.domain.Client;
-import carshire.domain.Seller;
+import java.math.BigDecimal;
 import javafx.fxml.FXML;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,12 +34,19 @@ public class TabManagerSubtabClientsDiscount {
     @FXML
     TableColumn<Client, Integer> discountClientColumn;
     @FXML
-    TextField id, discountClient;
+    TextField id;
+    @FXML
+    Slider discountSlider;
 
     void configureTable() {
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<Client, String>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<Client, String>("lastName"));
         discountClientColumn.setCellValueFactory(new PropertyValueFactory<Client, Integer>("discount"));
+        discountSlider.setMin(0);
+        discountSlider.setMax(99);
+        discountSlider.setShowTickLabels(true);
+        discountSlider.setShowTickMarks(true);
+        discountSlider.setMajorTickUnit(4);
     }
 
     void fillTable() {
@@ -52,21 +60,26 @@ public class TabManagerSubtabClientsDiscount {
     public void fillTextFields() {
         Client client = clients.getSelectionModel().getSelectedItem();
         id.setText(client.getId().toString());
-        discountClient.setText(client.getDiscount().toString());
+        discountSlider.setValue(client.getDiscount());
     }
 
     @FXML
     public void btnAddDiscountClient() {
-            Client client = new Client();
-            client = service.findOne(Long.parseLong(id.getText()));
-            
-            client.setDiscount(Integer.parseInt(discountClient.getText()));
+        if (!id.getText().isEmpty()) {
+            Client client = service.findById(Long.parseLong(id.getText()));
+
+            Double discountSliderBar = discountSlider.getValue();
+            Integer discountSliderValue = discountSliderBar.intValue();
+            BigDecimal discountSliderValueFXbd = new BigDecimal(discountSliderValue.toString());
+
+            client.setDiscount(discountSliderValue);
 
             main.deleteAllClientsViews();
             service.save(client);
             main.addAllClientsViews();
+        }
     }
-    
+
     void deleteAllViewRecords() {
         for (Client client : service.findAllClients()) {
             clients.getItems().remove(client);

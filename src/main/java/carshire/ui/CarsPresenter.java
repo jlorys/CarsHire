@@ -91,6 +91,13 @@ public class CarsPresenter {
                 tabManagerSubtabClientsDiscount.fillTextFields();
             }
         });
+
+        tabManagerSubtabCarsDiscount.cars.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabManagerSubtabCarsDiscount.fillTextFields();
+            }
+        });
     }
 
     void fillHiresTables() {
@@ -135,7 +142,7 @@ public class CarsPresenter {
         tabManagerSubtabCars.addAllViewRecords();
         tabManagerSubtabCarsDiscount.addAllViewRecords();
     }
-    
+
     void addAllClientsViews() {
         tabManagerSubtabClientsDiscount.addAllViewRecords();
     }
