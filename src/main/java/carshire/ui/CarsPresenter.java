@@ -1,12 +1,18 @@
 package carshire.ui;
 
+import carshire.SellerService;
+import carshire.domain.Seller;
+import carshire.domain.Seller.Rights;
+import java.util.Optional;
 import javafx.fxml.FXML;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 @Component
@@ -20,6 +26,7 @@ public class CarsPresenter {
     TabAdminSubtabManagers tabAdminSubtabManagers;
     TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice;
     TabEmployeeSubtabHire tabEmployeeSubtabHire;
+    SellerService sellerService;
 
     @Autowired
     public CarsPresenter(TabManagerSubtabCars tabManagerSubtabCars,
@@ -29,7 +36,8 @@ public class CarsPresenter {
             TabManagerSubtabEmployees tabManagerSubtabEmployees,
             TabAdminSubtabManagers tabAdminSubtabManagers,
             TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice,
-            TabEmployeeSubtabHire tabEmployeeSubtabHire) {
+            TabEmployeeSubtabHire tabEmployeeSubtabHire,
+            SellerService sellerService) {
         this.tabManagerSubtabCars = tabManagerSubtabCars;
         this.tabManagerSubtabCarsDiscount = tabManagerSubtabCarsDiscount;
         this.tabEmployeeSubtabClients = tabEmployeeSubtabClients;
@@ -38,6 +46,7 @@ public class CarsPresenter {
         this.tabAdminSubtabManagers = tabAdminSubtabManagers;
         this.tabEmployeeSubtabInvoice = tabEmployeeSubtabInvoice;
         this.tabEmployeeSubtabHire = tabEmployeeSubtabHire;
+        this.sellerService = sellerService;
     }
 
     //Main tabs - Admin, manager, employee
@@ -49,8 +58,17 @@ public class CarsPresenter {
     private Tab employeeTab;
 
     @FXML
+    TextField login;
+    @FXML
+    TextField password;
+    @FXML
+    Label info;
+
+    @FXML
     public void initialize() {
         disableTabs();
+        login.setText("wiertel");
+        password.setText("mw");
 
         tabManagerSubtabCars.init(this);
         tabManagerSubtabCarsDiscount.init(this);
@@ -188,28 +206,51 @@ public class CarsPresenter {
     }
 
     @FXML
-    private void disableTabs() {
-        adminTab.setDisable(true);
-        managerTab.setDisable(true);
-        employeeTab.setDisable(true);
+    public void btnLogin() {
+        if (!login.getText().isEmpty()
+                && !password.getText().isEmpty()) {
+
+            Seller seller = sellerService.findByLogin(login.getText());
+            Optional<Seller> sellerOpt = Optional.ofNullable(seller);
+
+            if (sellerOpt.isPresent() && seller.getPassword().equals(password.getText())) {
+                if (seller.getRights() == Rights.Admin) {
+                    btnEnableAdmin();
+                } else if (seller.getRights() == Rights.Manager) {
+                    btnEnableManager();
+                } else if (seller.getRights() == Rights.Employee) {
+                    btnEnableEmployee();
+                }
+                info.setText("Zalogowany jako: " + seller.getFirstName() + " " + seller.getLastName());
+            } else {
+                info.setText("Nieudana próba");
+            }
+        } else {
+            info.setText("Nieudana próba");
+        }
     }
 
     @FXML
-    public void btnEnableAdmin() {
+    public void disableTabs() {
+        adminTab.setDisable(true);
+        managerTab.setDisable(true);
+        employeeTab.setDisable(true);
+        info.setText("");
+    }
+
+    private void btnEnableAdmin() {
         adminTab.setDisable(false);
         managerTab.setDisable(false);
         employeeTab.setDisable(false);
     }
 
-    @FXML
-    public void btnEnableManager() {
+    private void btnEnableManager() {
         adminTab.setDisable(true);
         managerTab.setDisable(false);
         employeeTab.setDisable(false);
     }
 
-    @FXML
-    public void btnEnableEmployee() {
+    private void btnEnableEmployee() {
         adminTab.setDisable(true);
         managerTab.setDisable(true);
         employeeTab.setDisable(false);

@@ -91,10 +91,10 @@ public class TabEmployeeSubtabHire {
 
     @FXML
     public void btnCalculateTotalPay() {
-        if (!cars.getSelectionModel().isEmpty()
-                && !clients.getSelectionModel().isEmpty()
-                && Optional.ofNullable(endDate.getDateTimeValue()).isPresent()
-                && Optional.ofNullable(startDate.getDateTimeValue()).isPresent()) {
+        if (!idCar.getText().isEmpty()
+                && !idClient.getText().isEmpty()  
+                && endDate.getValue() != null
+                && startDate.getValue() != null) {
 
             Integer startYear = endDate.getDateTimeValue().getYear();
             Integer startMonth = endDate.getDateTimeValue().getMonthValue();
@@ -119,6 +119,7 @@ public class TabEmployeeSubtabHire {
             Integer numberOfHireDays = end.compareTo(start) + ifTimeOfDayIsExceed;
 
             Client client = clientService.findById(Long.parseLong(idClient.getText()));
+            car = cars.getSelectionModel().getSelectedItem();
             BigDecimal carPricePerMonth = car.getPricePerDayAfterDiscount();
             BigDecimal clientDiscount = new BigDecimal(client.getDiscount().toString());
             BigDecimal numberOfHireDaysBD = new BigDecimal(numberOfHireDays.toString());
@@ -143,11 +144,11 @@ public class TabEmployeeSubtabHire {
 
     @FXML
     public void btnHireCar() {
-        if(!cars.getSelectionModel().isEmpty()
-                && !clients.getSelectionModel().isEmpty()
-                && Optional.ofNullable(endDate.getDateTimeValue()).isPresent()
-                && Optional.ofNullable(startDate.getDateTimeValue()).isPresent()
-                && Optional.ofNullable(totalPay.getText()).isPresent()){
+        if(!idCar.getText().isEmpty()
+                && !idClient.getText().isEmpty()  
+                && endDate.getValue() != null
+                && startDate.getValue() != null
+                && !totalPay.getText().isEmpty()){
             
             Hire hire = new Hire();
             hire.setClientId(Long.parseLong(idClient.getText()));
@@ -170,9 +171,7 @@ public class TabEmployeeSubtabHire {
             main.addAllHiresViews();
             
             btnClearHireCar();
-
         }
-        
     }
 
     void fillTable() {

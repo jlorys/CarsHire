@@ -16,4 +16,6 @@ public interface SellerService {
     public void delete(Seller seller);
     
     public void deleteAll();
+    
+    public Seller findByLogin(final String login);
 }

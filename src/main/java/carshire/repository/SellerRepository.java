@@ -16,4 +16,6 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
 
     @Query(nativeQuery = true, value = FIND_MANAGERS)
     List<Seller> findAllManagers();
+    
+    public Seller findByLogin(final String login);
 }

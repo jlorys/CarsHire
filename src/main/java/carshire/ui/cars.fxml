@@ -11,16 +11,13 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TextField layoutX="233.0" layoutY="100.0" />
-                        <TextField layoutX="233.0" layoutY="137.0" />
+                        <TextField fx:id="login" layoutX="233.0" layoutY="100.0" />
+                        <TextField fx:id="password" layoutX="233.0" layoutY="137.0" />
                         <Label layoutX="172.0" layoutY="104.0" prefHeight="14.0" prefWidth="57.0" text="Login" />
                         <Label layoutX="172.0" layoutY="141.0" text="Hasło" />
-                        <Button layoutX="172.0" layoutY="175.0" mnemonicParsing="false" text="Zaloguj" />
-                        <Label layoutX="172.0" layoutY="202.0" prefHeight="14.0" prefWidth="157.0" text="Tymczasowe rozwiązanie:" />
-                        <Button layoutX="172.0" layoutY="220.0" mnemonicParsing="false" onAction="#btnEnableAdmin" styleClass="record-sales" text="Zaloguj jako Admin" />
-                        <Button layoutX="172.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnEnableManager" styleClass="record-sales" text="Zaloguj jako Kierownik" />
-                        <Button layoutX="172.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnEnableEmployee" styleClass="record-sales" text="Zaloguj jako Pracownik" />
-                        <Button layoutX="173.0" layoutY="370.0" mnemonicParsing="false" onAction="#disableTabs" styleClass="record-sales" text="Wyloguj" />
+                        <Label fx:id="info" layoutX="170.0" layoutY="70.0" text="" />
+                        <Button layoutX="172.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnLogin" styleClass="record-sales" text="Zaloguj" />
+                        <Button layoutX="173.0" layoutY="230.0" mnemonicParsing="false" onAction="#disableTabs" styleClass="record-sales" text="Wyloguj" />
                     </children>
                 </AnchorPane>
             </content>

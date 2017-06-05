@@ -45,4 +45,9 @@ class SellerServiceImpl implements SellerService {
     public void deleteAll() {
         sellerRepository.deleteAll();
     }
+
+    @Override
+    public Seller findByLogin(final String login) {
+        return sellerRepository.findByLogin(login);
+    }
 }
