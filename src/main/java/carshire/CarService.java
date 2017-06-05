@@ -12,4 +12,8 @@ public interface CarService {
     public void delete(Car car);
     
     public Car findById(final Long id);
+    
+    public List<Car> findAllAvalibleCars();
+    
+    public List<Car> findAllNotAvalibleCars();
 }

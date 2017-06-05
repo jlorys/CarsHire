@@ -19,6 +19,7 @@ public class CarsPresenter {
     TabManagerSubtabEmployees tabManagerSubtabEmployees;
     TabAdminSubtabManagers tabAdminSubtabManagers;
     TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice;
+    TabEmployeeSubtabHire tabEmployeeSubtabHire;
 
     @Autowired
     public CarsPresenter(TabManagerSubtabCars tabManagerSubtabCars,
@@ -27,7 +28,8 @@ public class CarsPresenter {
             TabManagerSubtabClientsDiscount tabManagerSubtabClientsDiscount,
             TabManagerSubtabEmployees tabManagerSubtabEmployees,
             TabAdminSubtabManagers tabAdminSubtabManagers,
-            TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice) {
+            TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice,
+            TabEmployeeSubtabHire tabEmployeeSubtabHire) {
         this.tabManagerSubtabCars = tabManagerSubtabCars;
         this.tabManagerSubtabCarsDiscount = tabManagerSubtabCarsDiscount;
         this.tabEmployeeSubtabClients = tabEmployeeSubtabClients;
@@ -35,6 +37,7 @@ public class CarsPresenter {
         this.tabManagerSubtabEmployees = tabManagerSubtabEmployees;
         this.tabAdminSubtabManagers = tabAdminSubtabManagers;
         this.tabEmployeeSubtabInvoice = tabEmployeeSubtabInvoice;
+        this.tabEmployeeSubtabHire = tabEmployeeSubtabHire;
     }
 
     //Main tabs - Admin, manager, employee
@@ -62,6 +65,7 @@ public class CarsPresenter {
         fillSellersTables();
 
         tabEmployeeSubtabInvoice.init(this);
+        tabEmployeeSubtabHire.init(this);
         fillHiresTables();
 
         tabManagerSubtabCars.cars.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -105,10 +109,25 @@ public class CarsPresenter {
                 tabEmployeeSubtabClients.fillTextFields();
             }
         });
+
+        tabEmployeeSubtabHire.cars.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabEmployeeSubtabHire.fillCarTextFields();
+            }
+        });
+
+        tabEmployeeSubtabHire.clients.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabEmployeeSubtabHire.fillClientTextFields();
+            }
+        });
     }
 
     void fillHiresTables() {
         tabEmployeeSubtabInvoice.fillTable();
+        tabEmployeeSubtabHire.fillTable();
     }
 
     void fillSellersTables() {
@@ -126,6 +145,10 @@ public class CarsPresenter {
         tabManagerSubtabCarsDiscount.fillTable();
     }
 
+    void deleteAllHiresViews() {
+        tabEmployeeSubtabInvoice.deleteAllViewRecords();
+    }
+
     void deleteAllSellersViews() {
         tabAdminSubtabManagers.deleteAllViewRecords();
         tabManagerSubtabEmployees.deleteAllViewRecords();
@@ -134,11 +157,13 @@ public class CarsPresenter {
     void deleteAllCarsViews() {
         tabManagerSubtabCars.deleteAllViewRecords();
         tabManagerSubtabCarsDiscount.deleteAllViewRecords();
+        tabEmployeeSubtabHire.deleteAllViewRecords();
     }
 
     void deleteAllClientsViews() {
         tabManagerSubtabClientsDiscount.deleteAllViewRecords();
         tabEmployeeSubtabClients.deleteAllViewRecords();
+        tabEmployeeSubtabHire.deleteAllViewRecords();
     }
 
     void addAllSellersViews() {
@@ -146,14 +171,20 @@ public class CarsPresenter {
         tabManagerSubtabEmployees.addAllViewRecords();
     }
 
+    void addAllHiresViews() {
+        tabEmployeeSubtabInvoice.addAllViewRecords();
+    }
+
     void addAllCarsViews() {
         tabManagerSubtabCars.addAllViewRecords();
         tabManagerSubtabCarsDiscount.addAllViewRecords();
+        tabEmployeeSubtabHire.addAllViewRecords();
     }
 
     void addAllClientsViews() {
         tabManagerSubtabClientsDiscount.addAllViewRecords();
         tabEmployeeSubtabClients.addAllViewRecords();
+        tabEmployeeSubtabHire.addAllViewRecords();
     }
 
     @FXML

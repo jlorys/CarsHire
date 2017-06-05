@@ -65,4 +65,16 @@ public class TabEmployeeSubtabInvoice {
         hires.getSelectionModel().selectFirst();
     }
 
+    void deleteAllViewRecords() {
+        for (Hire hire : service.findAllHires()) {
+            hires.getItems().remove(hire);
+        }
+    }
+
+    void addAllViewRecords() {
+        for (Hire hire : service.findAllHires()) {
+            hires.getItems().add(hire);
+        }
+    }
+
 }

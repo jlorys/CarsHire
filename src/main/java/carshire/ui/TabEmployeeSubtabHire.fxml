@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="712.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabEmployeeSubtabHire">
+    <children>
+        <Pane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Label layoutX="152.0" layoutY="15.0" text="Klienci" />
+                <Label layoutX="736.0" layoutY="15.0" text="Samochody dostępne do wypożyczenia" />
+   
+                <TableView fx:id="clients" layoutX="21.0" layoutY="31.0" prefHeight="663.0" prefWidth="296.0">
+                    <columns>
+                        <TableColumn fx:id="firstNameColumn" prefWidth="98.0" text="%firstNameColumn.caption" />
+                        <TableColumn fx:id="lastNameColumn" prefWidth="98.0" text="%lastNameColumn.caption" />
+                        <TableColumn fx:id="discountClientColumn" prefWidth="99.0" text="%discountClientColumn.caption" />
+                    </columns>
+                </TableView>
+               
+                <TableView fx:id="cars" layoutX="670.0" layoutY="31.0" prefHeight="663.0" prefWidth="340.0">
+                    <columns>
+                        <TableColumn fx:id="manufacturerColumn" prefWidth="85.0" text="%manufacturerColumn.caption" />
+                        <TableColumn fx:id="pricePerDayAfterDiscountColumn" prefWidth="105.0" text="%pricePerDayAfterDiscountColumn.caption" />
+                        <TableColumn fx:id="statusColumn" prefWidth="85.0" text="%statusColumn.caption" />
+                        <TableColumn fx:id="registrationNumberColumn" prefWidth="65.0" text="%registrationNumberColumn.caption" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        
+        <tornadofx.control.DateTimePicker fx:id="startDate" layoutX="411.0" layoutY="187.0" prefHeight="25.0" prefWidth="178.0" />
+        <tornadofx.control.DateTimePicker fx:id="endDate" layoutX="411.0" layoutY="244.0" prefHeight="25.0" prefWidth="178.0" />
+        <Label layoutX="350.0" layoutY="191.0" text="Od" />
+        <Label layoutX="351.0" layoutY="248.0" text="Do" />
+        <TextField fx:id="idClient" disable="true" layoutX="333.0" layoutY="128.0" prefHeight="25.0" prefWidth="69.0" />
+        <TextField fx:id="idCar" disable="true" layoutX="585.0" layoutY="128.0" prefHeight="25.0" prefWidth="69.0" />
+        <Button styleClass="record-sales" layoutX="402.0" layoutY="371.0" mnemonicParsing="false" onAction="#btnCalculateTotalPay" text="Oblicz sumę do zapłaty" />
+        <Button styleClass="record-sales" layoutX="452.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnHireCar" text="Wypożycz" />
+        <TextField fx:id="totalPay" disable="true" layoutX="465.0" layoutY="331.0" prefHeight="25.0" prefWidth="69.0" />
+        <Label layoutX="447.0" layoutY="307.0" text="W sumie do zapłaty" />
+    </children>
+</AnchorPane>

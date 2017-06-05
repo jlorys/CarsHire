@@ -35,4 +35,14 @@ class CarServiceImpl implements CarService {
     public Car findById(final Long id) {
         return carRepository.findById(id);
     }
+
+    @Override
+    public List<Car> findAllAvalibleCars() {
+        return carRepository.findAllAvalibleCars();
+    }
+
+    @Override
+    public List<Car> findAllNotAvalibleCars() {
+        return carRepository.findAllNotAvalibleCars();
+    }
 }

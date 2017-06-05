@@ -3,7 +3,6 @@ package carshire.ui;
 import carshire.CarService;
 import carshire.domain.Car;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,7 +39,7 @@ public class TabManagerSubtabCars {
     @FXML
     TableColumn<Car, BigDecimal> pricePerDayColumn;
     @FXML
-    TableColumn<Car, BigInteger> pricePerDayAfterDiscountColumn;
+    TableColumn<Car, BigDecimal> pricePerDayAfterDiscountColumn;
     @FXML
     TableColumn<Car, Car.CarStatus> statusColumn;
     @FXML
@@ -125,7 +124,7 @@ public class TabManagerSubtabCars {
         engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<Car, Float>("engineCapacity"));
         vehicleMileageColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("vehicleMileage"));
         pricePerDayColumn.setCellValueFactory(new PropertyValueFactory<Car, BigDecimal>("pricePerDay"));
-        pricePerDayAfterDiscountColumn.setCellValueFactory(new PropertyValueFactory<Car, BigInteger>("pricePerDayAfterDiscount"));
+        pricePerDayAfterDiscountColumn.setCellValueFactory(new PropertyValueFactory<Car, BigDecimal>("pricePerDayAfterDiscount"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<Car, Car.CarStatus>("status"));
         discountCarColumn.setCellValueFactory(new PropertyValueFactory<Car, Integer>("discount"));
         registrationNumberColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("registrationNumber"));

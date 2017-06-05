@@ -1,9 +1,21 @@
 package carshire.repository;
 
 import carshire.domain.Car;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     public Car findById(final Long id);
+    
+    public static final String FIND_AVALIBLE_CARS = "select * from car where status = 'Avalible'";
+
+    public static final String FIND_NOT_AVALIBLE_CARS = "select * from car where status = 'NotAvalible'";
+
+    @Query(nativeQuery = true, value = FIND_AVALIBLE_CARS)
+    List<Car> findAllAvalibleCars();
+
+    @Query(nativeQuery = true, value = FIND_NOT_AVALIBLE_CARS)
+    List<Car> findAllNotAvalibleCars();
 }
