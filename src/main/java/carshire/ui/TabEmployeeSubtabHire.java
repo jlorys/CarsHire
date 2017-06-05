@@ -153,7 +153,7 @@ public class TabEmployeeSubtabHire {
             Hire hire = new Hire();
             hire.setClientId(Long.parseLong(idClient.getText()));
             hire.setCarId(Long.parseLong(idCar.getText()));
-            hire.setSellerId(1L); //Temorary value
+            hire.setSellerId(main.loggedSeller.getId());
             hire.setHireDate(start);
             hire.setHireEndDate(end);
             hire.setStatus(Hire.HireStatus.NotPaid);

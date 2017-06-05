@@ -63,6 +63,8 @@ public class CarsPresenter {
     TextField password;
     @FXML
     Label info;
+    
+    Seller loggedSeller;
 
     @FXML
     public void initialize() {
@@ -210,18 +212,18 @@ public class CarsPresenter {
         if (!login.getText().isEmpty()
                 && !password.getText().isEmpty()) {
 
-            Seller seller = sellerService.findByLogin(login.getText());
-            Optional<Seller> sellerOpt = Optional.ofNullable(seller);
+            loggedSeller = sellerService.findByLogin(login.getText());
+            Optional<Seller> sellerOpt = Optional.ofNullable(loggedSeller);
 
-            if (sellerOpt.isPresent() && seller.getPassword().equals(password.getText())) {
-                if (seller.getRights() == Rights.Admin) {
+            if (sellerOpt.isPresent() && loggedSeller.getPassword().equals(password.getText())) {
+                if (loggedSeller.getRights() == Rights.Admin) {
                     btnEnableAdmin();
-                } else if (seller.getRights() == Rights.Manager) {
+                } else if (loggedSeller.getRights() == Rights.Manager) {
                     btnEnableManager();
-                } else if (seller.getRights() == Rights.Employee) {
+                } else if (loggedSeller.getRights() == Rights.Employee) {
                     btnEnableEmployee();
                 }
-                info.setText("Zalogowany jako: " + seller.getFirstName() + " " + seller.getLastName());
+                info.setText("Zalogowany jako: " + loggedSeller.getFirstName() + " " + loggedSeller.getLastName());
             } else {
                 info.setText("Nieudana próba");
             }
