@@ -12,7 +12,7 @@
                     <content>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                             <children>
-							    <Label layoutX="36.0" layoutY="51.0" text="Imie" />
+                                <Label layoutX="36.0" layoutY="51.0" text="Imie" />
                                 <Label layoutX="25.0" layoutY="85.0" text="Nazwisko" />
                                 <TextField fx:id="firstName" layoutX="98.0" layoutY="47.0" />
                                 <TextField fx:id="lastName" layoutX="98.0" layoutY="81.0" />
@@ -31,7 +31,7 @@
                                 <Label layoutX="34.0" layoutY="250.0" text="Ulica" />
                                 <Label layoutX="17.0" layoutY="283.0" text="numer domu" />
                                 <Label layoutX="260.0" layoutY="18.0" text="Kierownicy w bazie" />
-                                <Button layoutX="25.0" layoutY="410.0" onAction="#btnAddManager" styleClass="record-sales" text="Dodaj samochód" />
+                                <Button layoutX="25.0" layoutY="410.0" onAction="#btnAddManager" styleClass="record-sales" text="Dodaj kierownika" />
                                 <Button layoutX="25.0" layoutY="460.0" mnemonicParsing="false" onAction="#btnDeleteManager" styleClass="record-sales" text="Usuń" />
                                 <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnClearManager" styleClass="record-sales" text="Wyczyść pola" />
                                 <TableView fx:id="sellers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
