@@ -1,6 +1,6 @@
 insert into car (manufacturer, model, year_of_manufacture, engine_capacity, vehicle_mileage, price_per_day, price_per_day_after_discount, status, discount, registration_number) values('Daewoo', 'Lanos', 1998, 1.5, 140123, 21.0, 21.0, 'Avalible', 0, 'RZE1212');
 insert into car (manufacturer, model, year_of_manufacture, engine_capacity, vehicle_mileage, price_per_day, price_per_day_after_discount, status, discount, registration_number) values('Ferrari', 'Enzo', 1996, 4.2, 189000, 111.23, 111.23, 'Avalible', 0, 'RZE1236');
-insert into car (manufacturer, model, year_of_manufacture, engine_capacity, vehicle_mileage, price_per_day, price_per_day_after_discount, status, discount, registration_number) values('Corvette', 'Stingray', 1980, 3.6, 211555, 97.45, 97.45, 'NotAvalible', 0, 'RZE9912'); 
+insert into car (manufacturer, model, year_of_manufacture, engine_capacity, vehicle_mileage, price_per_day, price_per_day_after_discount, status, discount, registration_number) values('Corvette', 'Stingray', 1980, 3.6, 211555, 97.45, 97.45, 'Avalible', 0, 'RZE9912'); 
 
 insert into client (first_name, last_name, e_mail, city, street, house_number, discount) values('Andrzej', 'Kowal', 'akowal@o2.pl', 'Rzeszow', 'Mickiewicza', '21', 0); 
 insert into client (first_name, last_name, e_mail, city, street, house_number, discount) values('Szymek', 'Trembecki', 'strembecki@o2.pl', 'Rzeszow', 'Wesola', '5', 0); 

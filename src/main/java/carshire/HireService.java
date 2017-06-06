@@ -10,4 +10,6 @@ public interface HireService {
     public Hire save(Hire hire);
 
     public void delete(Hire hire);
+    
+    public Hire findByCarIdAndStatus(final Long carId, final Hire.HireStatus status);
 }

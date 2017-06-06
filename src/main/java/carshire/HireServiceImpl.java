@@ -30,4 +30,9 @@ class HireServiceImpl implements HireService {
     public void delete(Hire hire) {
         hireRepository.delete(hire);
     }
+
+    @Override
+    public Hire findByCarIdAndStatus(Long carId, Hire.HireStatus status) {
+        return hireRepository.findByCarIdAndStatus(carId, status);
+    }
 }

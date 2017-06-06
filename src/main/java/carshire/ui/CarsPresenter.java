@@ -26,6 +26,7 @@ public class CarsPresenter {
     TabAdminSubtabManagers tabAdminSubtabManagers;
     TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice;
     TabEmployeeSubtabHire tabEmployeeSubtabHire;
+    TabEmployeeSubtabHireReturn tabEmployeeSubtabHireReturn;
     SellerService sellerService;
 
     @Autowired
@@ -37,7 +38,8 @@ public class CarsPresenter {
             TabAdminSubtabManagers tabAdminSubtabManagers,
             TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice,
             TabEmployeeSubtabHire tabEmployeeSubtabHire,
-            SellerService sellerService) {
+            SellerService sellerService,
+            TabEmployeeSubtabHireReturn tabEmployeeSubtabHireReturn) {
         this.tabManagerSubtabCars = tabManagerSubtabCars;
         this.tabManagerSubtabCarsDiscount = tabManagerSubtabCarsDiscount;
         this.tabEmployeeSubtabClients = tabEmployeeSubtabClients;
@@ -47,6 +49,7 @@ public class CarsPresenter {
         this.tabEmployeeSubtabInvoice = tabEmployeeSubtabInvoice;
         this.tabEmployeeSubtabHire = tabEmployeeSubtabHire;
         this.sellerService = sellerService;
+        this.tabEmployeeSubtabHireReturn = tabEmployeeSubtabHireReturn;
     }
 
     //Main tabs - Admin, manager, employee
@@ -63,7 +66,7 @@ public class CarsPresenter {
     TextField password;
     @FXML
     Label info;
-    
+
     Seller loggedSeller;
 
     @FXML
@@ -86,6 +89,7 @@ public class CarsPresenter {
 
         tabEmployeeSubtabInvoice.init(this);
         tabEmployeeSubtabHire.init(this);
+        tabEmployeeSubtabHireReturn.init(this);
         fillHiresTables();
 
         tabManagerSubtabCars.cars.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -143,11 +147,19 @@ public class CarsPresenter {
                 tabEmployeeSubtabHire.fillClientTextFields();
             }
         });
+
+        tabEmployeeSubtabHireReturn.cars.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabEmployeeSubtabHireReturn.fillTextFields();
+            }
+        });
     }
 
     void fillHiresTables() {
         tabEmployeeSubtabInvoice.fillTable();
         tabEmployeeSubtabHire.fillTable();
+        tabEmployeeSubtabHireReturn.fillTable();
     }
 
     void fillSellersTables() {
@@ -167,6 +179,7 @@ public class CarsPresenter {
 
     void deleteAllHiresViews() {
         tabEmployeeSubtabInvoice.deleteAllViewRecords();
+        tabEmployeeSubtabHireReturn.deleteAllViewRecords();
     }
 
     void deleteAllSellersViews() {
@@ -193,6 +206,7 @@ public class CarsPresenter {
 
     void addAllHiresViews() {
         tabEmployeeSubtabInvoice.addAllViewRecords();
+        tabEmployeeSubtabHireReturn.addAllViewRecords();
     }
 
     void addAllCarsViews() {

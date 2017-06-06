@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="712.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabEmployeeSubtabHireReturn">
+    <children>
+        <Pane layoutY="7.0" prefHeight="509.0" prefWidth="757.0">
+            <children>
+                <Label layoutX="410.0" layoutY="100.0" prefHeight="17.0" prefWidth="234.0" text="Id wypożyczonego samochodu" />
+                <TextField fx:id="idCar" disable="true" layoutX="410.0" layoutY="120.0" />
+                <tornadofx.control.DateTimePicker fx:id="hireReturnDate" layoutX="414.0" layoutY="206.0" prefHeight="25.0" prefWidth="178.0" />
+                <Label layoutX="414.0" layoutY="180.0" prefHeight="17.0" prefWidth="81.0" text="Data zwrotu" />
+                <Label layoutX="410.0" layoutY="268.0" prefHeight="17.0" prefWidth="134.0" text="Ewenualne odsetki" />
+                <TextField fx:id="defaultInterest" disable="true" layoutX="410.0" layoutY="293.0" />
+                <Button styleClass="record-sales" layoutX="410.0" layoutY="350.0" onAction="#btnCalculateDefaultInterest" mnemonicParsing="false" text="Oblicz odsetki" />
+                <Button styleClass="record-sales" layoutX="410.0" layoutY="400.0" onAction="#btnReturnHire" mnemonicParsing="false" text="Zwróć" />
+                <Label layoutX="14.0" layoutY="6.0" text="Samochody aktualnie wypożyczone" />
+                <Label layoutX="518.0" layoutY="297.0" text="zł" />
+                <TableView fx:id="cars" layoutX="14.0" layoutY="31.0" prefHeight="663.0" prefWidth="388.0">
+                    <columns>
+                        <TableColumn fx:id="manufacturerColumn" prefWidth="85.0" text="%manufacturerColumn.caption" />
+                        <TableColumn fx:id="pricePerDayAfterDiscountColumn" prefWidth="105.0" text="%pricePerDayAfterDiscountColumn.caption" />
+                        <TableColumn fx:id="statusColumn" prefWidth="85.0" text="%statusColumn.caption" />
+                        <TableColumn fx:id="registrationNumberColumn" prefWidth="125.0" text="%registrationNumberColumn.caption" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

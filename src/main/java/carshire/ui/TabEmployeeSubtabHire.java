@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.Optional;
+import static java.time.temporal.ChronoUnit.DAYS;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -110,26 +110,30 @@ public class TabEmployeeSubtabHire {
             Integer endMinute = startDate.getDateTimeValue().getMinute();
             start = LocalDateTime.of(endYear, Month.of(endMonth), endDay, endHour, endMinute);
 
+            long numberOfHireDays = DAYS.between(start, end);
+            
             //ifTimeOfDayIsExceed - this value is checking is day is exceed or not, 1 if passed, 0 if not
             Integer ifTimeOfDayIsExceed = end.toLocalTime().compareTo(start.toLocalTime());
-            if (ifTimeOfDayIsExceed == -1) {
-                ifTimeOfDayIsExceed = 0;
-            }
 
-            Integer numberOfHireDays = end.compareTo(start) + ifTimeOfDayIsExceed;
+            if(ifTimeOfDayIsExceed.equals(1)){numberOfHireDays++;}
 
             Client client = clientService.findById(Long.parseLong(idClient.getText()));
             car = cars.getSelectionModel().getSelectedItem();
             BigDecimal carPricePerMonth = car.getPricePerDayAfterDiscount();
             BigDecimal clientDiscount = new BigDecimal(client.getDiscount().toString());
-            BigDecimal numberOfHireDaysBD = new BigDecimal(numberOfHireDays.toString());
+            BigDecimal numberOfHireDaysBD = new BigDecimal(numberOfHireDays);
 
             totalPayBD = (carPricePerMonth.multiply(numberOfHireDaysBD))
                     .multiply(((new BigDecimal(BigInteger.ONE)).subtract(clientDiscount.divide(new BigDecimal("100")))));
 
             totalPayBD = totalPayBD.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
-            totalPay.setText(totalPayBD.toString());
+            if(totalPayBD.intValue()<0){
+                
+            }else{
+                totalPay.setText(totalPayBD.toString());
+            }
+            
         }
     }
 
