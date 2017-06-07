@@ -24,7 +24,7 @@
         </Tab>
         <Tab fx:id="adminTab" styleClass="adminTab" text="Admin">
             <content>
-                <fx:include fx:id="tabAdminSubtabManagers" source="tabAdminSubtabManagers.fxml" />
+                <fx:include fx:id="tabAdminSubtabManagers" source="TabAdminSubtabManagers.fxml" />
             </content>
         </Tab>
         <Tab fx:id="managerTab" styleClass="managerTab" text="Kierownik">
@@ -82,12 +82,12 @@
                                 </Tab>
                                 <Tab styleClass="employeeTab" text="Klienci">
                                     <content>
-                                        <fx:include fx:id="tabEmployeeSubtabClients" source="tabEmployeeSubtabClients.fxml" />
+                                        <fx:include fx:id="tabEmployeeSubtabClients" source="TabEmployeeSubtabClients.fxml" />
                                     </content>
                                 </Tab>
                                 <Tab styleClass="employeeTab" text="Faktura">
                                     <content>
-                                        <fx:include fx:id="tabEmployeeSubtabInvoice" source="tabEmployeeSubtabInvoice.fxml" />
+                                        <fx:include fx:id="tabEmployeeSubtabInvoice" source="TabEmployeeSubtabInvoice.fxml" />
                                     </content>
                                 </Tab>
                             </tabs>
