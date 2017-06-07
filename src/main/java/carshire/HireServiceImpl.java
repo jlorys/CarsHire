@@ -2,6 +2,7 @@ package carshire;
 
 import carshire.domain.Hire;
 import carshire.repository.HireRepository;
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,15 @@ class HireServiceImpl implements HireService {
     @Override
     public Hire findByCarIdAndStatus(Long carId, Hire.HireStatus status) {
         return hireRepository.findByCarIdAndStatus(carId, status);
+    }
+
+    @Override
+    public Long countBySellerId(Long sellerId) {
+        return hireRepository.countBySellerId(sellerId);
+    }
+
+    @Override
+    public BigDecimal findSumOfEmployeeEarnings(Long sellerId) {
+        return hireRepository.findSumOfEmployeeEarnings(sellerId);
     }
 }

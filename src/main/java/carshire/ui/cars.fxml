@@ -55,19 +55,7 @@
                                 </Tab>
                                 <Tab styleClass="managerTab" text="Raport wypożyczeń">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                                <LineChart layoutX="24.0" layoutY="25.0" prefHeight="279.0" prefWidth="335.0" title="Raport wypożyczeń">
-                                                    <xAxis>
-                                                        <CategoryAxis side="BOTTOM" />
-                                                    </xAxis>
-                                                    <yAxis>
-                                                        <NumberAxis side="LEFT" />
-                                                    </yAxis>
-                                                </LineChart>
-                                                <Button layoutX="167.0" layoutY="299.0" mnemonicParsing="false" text="Generuj" />
-                                            </children>
-                                        </AnchorPane>
+                                        <fx:include fx:id="tabManagerSubtabReport" source="TabManagerSubtabReport.fxml" />
                                     </content>
                                 </Tab>
                             </tabs>

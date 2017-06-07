@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="589.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshire.ui.TabManagerSubtabReport">
+    <children>
+        <Label layoutX="24.0" layoutY="25.0" text="Raport wypożyczeń"/>
+        <Label fx:id="directory" layoutX="41.0" layoutY="130.0" text="" />
+        <Button fx:id="directoryChooser" styleClass="record-sales" layoutX="41.0" layoutY="144.0" mnemonicParsing="false" text="Wybierz miejsce na dysku" />
+        <Button fx:id="generate" styleClass="record-sales" layoutX="41.0" layoutY="184.0" onAction="#btnGeneratePdf" mnemonicParsing="false" text="Generuj" />
+    </children>              
+</AnchorPane>

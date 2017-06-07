@@ -31,6 +31,7 @@ public class CarsPresenter {
     TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice;
     TabEmployeeSubtabHire tabEmployeeSubtabHire;
     TabEmployeeSubtabHireReturn tabEmployeeSubtabHireReturn;
+    TabManagerSubtabReport tabManagerSubtabReport;
     SellerService sellerService;
 
     @Autowired
@@ -43,7 +44,8 @@ public class CarsPresenter {
             TabEmployeeSubtabInvoice tabEmployeeSubtabInvoice,
             TabEmployeeSubtabHire tabEmployeeSubtabHire,
             SellerService sellerService,
-            TabEmployeeSubtabHireReturn tabEmployeeSubtabHireReturn) {
+            TabEmployeeSubtabHireReturn tabEmployeeSubtabHireReturn,
+            TabManagerSubtabReport tabManagerSubtabReport) {
         this.tabManagerSubtabCars = tabManagerSubtabCars;
         this.tabManagerSubtabCarsDiscount = tabManagerSubtabCarsDiscount;
         this.tabEmployeeSubtabClients = tabEmployeeSubtabClients;
@@ -54,6 +56,7 @@ public class CarsPresenter {
         this.tabEmployeeSubtabHire = tabEmployeeSubtabHire;
         this.sellerService = sellerService;
         this.tabEmployeeSubtabHireReturn = tabEmployeeSubtabHireReturn;
+        this.tabManagerSubtabReport = tabManagerSubtabReport;
     }
 
     //Main tabs - Admin, manager, employee
@@ -178,6 +181,22 @@ public class CarsPresenter {
                     tabEmployeeSubtabInvoice.directory.setText("No Directory selected");
                 } else {
                     tabEmployeeSubtabInvoice.directory.setText(selectedDirectory.getAbsolutePath());
+                }
+            }
+        });
+
+        tabManagerSubtabReport.directoryChooser.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DirectoryChooser directoryChooser = new DirectoryChooser();
+                Stage primaryStage = null;
+                File selectedDirectory
+                        = directoryChooser.showDialog(primaryStage);
+
+                if (selectedDirectory == null) {
+                    tabManagerSubtabReport.directory.setText("No Directory selected");
+                } else {
+                    tabManagerSubtabReport.directory.setText(selectedDirectory.getAbsolutePath());
                 }
             }
         });
