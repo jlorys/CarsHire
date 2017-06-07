@@ -34,14 +34,33 @@ import org.springframework.context.ApplicationContextAware;
  */
 public abstract class FxmlView implements ApplicationContextAware {
 
+    /**
+     *
+     */
     protected ObjectProperty<Object> presenterProperty;
+
+    /**
+     *
+     */
     protected FXMLLoader fxmlLoader;
+
+    /**
+     *
+     */
     protected ResourceBundle bundle;
 
+    /**
+     *
+     */
     protected URL resource;
 
     private ApplicationContext applicationContext;
 
+    /**
+     *
+     * @param applicationContext
+     * @throws BeansException
+     */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
@@ -52,6 +71,9 @@ public abstract class FxmlView implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
+    /**
+     *
+     */
     public FxmlView() {
 
         this.presenterProperty = new SimpleObjectProperty<>();

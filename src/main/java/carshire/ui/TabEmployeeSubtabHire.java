@@ -20,6 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tornadofx.control.DateTimePicker;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabEmployeeSubtabHire {
 
@@ -34,6 +38,10 @@ public class TabEmployeeSubtabHire {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -89,6 +97,11 @@ public class TabEmployeeSubtabHire {
         registrationNumberColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("registrationNumber"));
     }
 
+    /**
+     * This method provides calculating total payment for hire,
+     * If somebody choose hiring from today to next day with same hour and minute, it will be one day,
+     * but if will be one minute more, it will be two days.
+     */
     @FXML
     public void btnCalculateTotalPay() {
         if (!idCar.getText().isEmpty()
@@ -137,6 +150,9 @@ public class TabEmployeeSubtabHire {
         }
     }
 
+    /**
+     * 
+     */
     @FXML
     public void btnClearHireCar() {
         idCar.clear();
@@ -146,6 +162,9 @@ public class TabEmployeeSubtabHire {
         startDate.getEditor().clear();
     }
 
+    /**
+     * This method provides adding new hire, if client will agree.
+     */
     @FXML
     public void btnHireCar() {
         if(!idCar.getText().isEmpty()
@@ -209,11 +228,17 @@ public class TabEmployeeSubtabHire {
         }
     }
 
+    /**
+     *
+     */
     public void fillCarTextFields() {
         car = cars.getSelectionModel().getSelectedItem();
         idCar.setText(car.getId().toString());
     }
 
+    /**
+     *
+     */
     public void fillClientTextFields() {
         Client client = clients.getSelectionModel().getSelectedItem();
         idClient.setText(client.getId().toString());

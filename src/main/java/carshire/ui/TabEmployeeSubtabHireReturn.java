@@ -18,6 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tornadofx.control.DateTimePicker;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabEmployeeSubtabHireReturn {
 
@@ -32,6 +36,10 @@ public class TabEmployeeSubtabHireReturn {
     Car car;
     Hire hire;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -65,6 +73,9 @@ public class TabEmployeeSubtabHireReturn {
         registrationNumberColumn.setCellValueFactory(new PropertyValueFactory<Car, String>("registrationNumber"));
     }
 
+    /**
+     * This method provides calculating default interest for late clients
+     */
     @FXML
     public void btnCalculateDefaultInterest() {
         if (!idCar.getText().isEmpty()
@@ -108,6 +119,10 @@ public class TabEmployeeSubtabHireReturn {
         }
     }
 
+    /**
+     * This method provides returning hire.
+     * It checks if client is late or not, and if he or she is, it's add default interest
+     */
     @FXML
     public void btnReturnHire() {
         if (!idCar.getText().isEmpty()
@@ -134,6 +149,9 @@ public class TabEmployeeSubtabHireReturn {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnClearHireCar() {
         idCar.clear();
@@ -161,6 +179,9 @@ public class TabEmployeeSubtabHireReturn {
         }
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Car car = cars.getSelectionModel().getSelectedItem();
         idCar.setText(car.getId().toString());

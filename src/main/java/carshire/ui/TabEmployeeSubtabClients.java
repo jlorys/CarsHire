@@ -11,6 +11,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabEmployeeSubtabClients {
 
@@ -19,6 +23,10 @@ public class TabEmployeeSubtabClients {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -53,6 +61,9 @@ public class TabEmployeeSubtabClients {
         discountClientColumn.setCellValueFactory(new PropertyValueFactory<Client, Integer>("discount"));
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnAddClient() {
         if (!firstName.getText().isEmpty() || !lastName.getText().isEmpty()) {
@@ -75,6 +86,9 @@ public class TabEmployeeSubtabClients {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnDeleteClient() {
         if (clients.getSelectionModel().isEmpty()) {
@@ -88,6 +102,9 @@ public class TabEmployeeSubtabClients {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnClearClient() {
         id.clear();
@@ -100,6 +117,9 @@ public class TabEmployeeSubtabClients {
         street.clear();
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Client client = clients.getSelectionModel().getSelectedItem();
         id.setText(client.getId().toString());

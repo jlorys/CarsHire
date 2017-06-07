@@ -13,6 +13,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ *
+ * @author Mariusz
+ */
 @Data
 @ToString
 @Entity
@@ -20,8 +24,19 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Hire {
 
+    /**
+     *
+     */
     public enum HireStatus {
+
+        /**
+         *
+         */
         Paid,
+
+        /**
+         *
+         */
         NotPaid
     };
 

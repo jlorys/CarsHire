@@ -13,6 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabManagerSubtabCarsDiscount {
 
@@ -21,6 +25,10 @@ public class TabManagerSubtabCarsDiscount {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -53,6 +61,9 @@ public class TabManagerSubtabCarsDiscount {
         discountSlider.setMajorTickUnit(4);
     }
 
+    /**
+     * This method is to add discount to the car
+     */
     @FXML
     public void btnAddDiscountCar() {
         if (!id.getText().isEmpty()) {
@@ -83,6 +94,9 @@ public class TabManagerSubtabCarsDiscount {
         cars.getSelectionModel().selectFirst();
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Car car = cars.getSelectionModel().getSelectedItem();
         id.setText(car.getId().toString());

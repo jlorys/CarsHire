@@ -14,6 +14,10 @@ import org.junit.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ *
+ * @author Kuba
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest()
 public class SellerRepositoryTest {
@@ -21,6 +25,10 @@ public class SellerRepositoryTest {
     @Autowired
     private SellerService repository;
 
+    /**
+     *
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         repository.deleteAll();
@@ -32,6 +40,9 @@ public class SellerRepositoryTest {
         repository.save(seller3);
     }
 
+    /**
+     *
+     */
     @Test
     public void find_OneSellerEntryFound_ShouldReturnAListOfOneEntry() {
         List<Seller> sellerEntries = repository.findAllManagers();

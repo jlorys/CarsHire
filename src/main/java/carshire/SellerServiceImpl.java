@@ -17,11 +17,13 @@ class SellerServiceImpl implements SellerService {
         this.sellerRepository = sellerRepository;
     }
 
+    @Override
     public List<Seller> findAllSellers() {
         return sellerRepository.findAll();
     }
 
     @Transactional
+    @Override
     public Seller save(Seller seller) {
         return sellerRepository.save(seller);
     }

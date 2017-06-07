@@ -49,6 +49,9 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
  */
 public class Jsr310JpaConverters {
 
+    /**
+     *
+     */
     @Converter(autoApply = true)
     public static class LocalDateConverter implements AttributeConverter<LocalDate, Date> {
 
@@ -63,6 +66,9 @@ public class Jsr310JpaConverters {
         }
     }
 
+    /**
+     *
+     */
     @Converter(autoApply = true)
     public static class LocalTimeConverter implements AttributeConverter<LocalTime, Date> {
 
@@ -77,6 +83,9 @@ public class Jsr310JpaConverters {
         }
     }
 
+    /**
+     *
+     */
     @Converter(autoApply = true)
     public static class LocalDateTimeConverter implements AttributeConverter<LocalDateTime, Date> {
 
@@ -91,6 +100,9 @@ public class Jsr310JpaConverters {
         }
     }
 
+    /**
+     *
+     */
     @Converter(autoApply = true)
     public static class InstantConverter implements AttributeConverter<Instant, Date> {
 
@@ -105,6 +117,9 @@ public class Jsr310JpaConverters {
         }
     }
 
+    /**
+     *
+     */
     @Converter(autoApply = true)
     public static class ZoneIdConverter implements AttributeConverter<ZoneId, String> {
 

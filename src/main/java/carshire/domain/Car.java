@@ -12,6 +12,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ *
+ * @author Kuba
+ */
 @Data
 @ToString
 @Entity
@@ -19,8 +23,19 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Car {
 
+    /**
+     *
+     */
     public enum CarStatus {
+
+        /**
+         *
+         */
         Avalible,
+
+        /**
+         *
+         */
         NotAvalible
     };
 

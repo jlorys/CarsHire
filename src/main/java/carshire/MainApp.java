@@ -12,6 +12,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import carshire.ui.CarsView;
 
+/**
+ *
+ * @author Kuba
+ */
 @SpringBootApplication
 public class MainApp extends Application {
 
@@ -31,6 +35,11 @@ public class MainApp extends Application {
         applicationContext.close();
     }
 
+    /**
+     *
+     * @param appClass
+     * @param args
+     */
     protected static void launchApp(Class<? extends MainApp> appClass, String[] args) {
         MainApp.savedCommandArgs = args;
         Application.launch(appClass, args);
@@ -53,6 +62,10 @@ public class MainApp extends Application {
 
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launchApp(MainApp.class, args);
     }

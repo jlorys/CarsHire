@@ -11,6 +11,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ *
+ * @author Grzesiek
+ */
 @Data
 @ToString
 @Entity
@@ -18,9 +22,22 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Seller {
 
+    /**
+     *
+     */
     public enum Rights {
+
+        /**
+         *
+         */
         Admin,
+        /**
+         *
+         */
         Manager,
+        /**
+         *
+         */
         Employee
     };
 

@@ -31,6 +31,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabEmployeeSubtabInvoice {
 
@@ -45,6 +49,10 @@ public class TabEmployeeSubtabInvoice {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -92,6 +100,11 @@ public class TabEmployeeSubtabInvoice {
         defaultInterestColumn.setCellValueFactory(new PropertyValueFactory<Hire, BigDecimal>("defaultInterest"));
     }
 
+    /**
+     *
+     * @throws DocumentException
+     * @throws IOException
+     */
     @FXML
     public void btnGeneratePdf() throws DocumentException, IOException {
         if (!idInvoice.getText().isEmpty()
@@ -122,12 +135,21 @@ public class TabEmployeeSubtabInvoice {
         }
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Hire hire = hires.getSelectionModel().getSelectedItem();
         idInvoice.setText(hire.getId().toString());
         directory.setText("");
     }
 
+    /**
+     *
+     * @param result
+     * @throws DocumentException
+     * @throws IOException
+     */
     public void createInvoicePdf(String result) throws DocumentException, IOException {
         Hire hire = hires.getSelectionModel().getSelectedItem();
         Seller seller = sellerService.findById(hire.getSellerId());

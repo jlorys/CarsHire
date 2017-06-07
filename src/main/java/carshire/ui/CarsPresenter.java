@@ -19,6 +19,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class CarsPresenter {
 
@@ -34,6 +38,20 @@ public class CarsPresenter {
     TabManagerSubtabReport tabManagerSubtabReport;
     SellerService sellerService;
 
+    /**
+     *
+     * @param tabManagerSubtabCars
+     * @param tabManagerSubtabCarsDiscount
+     * @param tabEmployeeSubtabClients
+     * @param tabManagerSubtabClientsDiscount
+     * @param tabManagerSubtabEmployees
+     * @param tabAdminSubtabManagers
+     * @param tabEmployeeSubtabInvoice
+     * @param tabEmployeeSubtabHire
+     * @param sellerService
+     * @param tabEmployeeSubtabHireReturn
+     * @param tabManagerSubtabReport
+     */
     @Autowired
     public CarsPresenter(TabManagerSubtabCars tabManagerSubtabCars,
             TabManagerSubtabCarsDiscount tabManagerSubtabCarsDiscount,
@@ -76,6 +94,9 @@ public class CarsPresenter {
 
     Seller loggedSeller;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
         disableTabs();
@@ -267,6 +288,9 @@ public class CarsPresenter {
         tabEmployeeSubtabHire.addAllViewRecords();
     }
 
+    /**
+     * This method provides loging into application
+     */
     @FXML
     public void btnLogin() {
         if (!login.getText().isEmpty()
@@ -292,6 +316,9 @@ public class CarsPresenter {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void disableTabs() {
         adminTab.setDisable(true);

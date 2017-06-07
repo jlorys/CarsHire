@@ -10,6 +10,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Dawid
+ */
 @Component
 public class TabAdminSubtabManagers {
 
@@ -18,6 +22,10 @@ public class TabAdminSubtabManagers {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -46,6 +54,9 @@ public class TabAdminSubtabManagers {
     @FXML
     TextField id, firstName, lastName, login, eMail, password, city, street, houseNumber;
     
+    /**
+     *
+     */
     @FXML
     public void btnAddManager() {
         if (firstName.getText().isEmpty() || lastName.getText().isEmpty()) {
@@ -71,6 +82,9 @@ public class TabAdminSubtabManagers {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnDeleteManager() {
         if (sellers.getSelectionModel().isEmpty()) {
@@ -84,6 +98,9 @@ public class TabAdminSubtabManagers {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     public void btnClearManager() {
         id.clear();
@@ -98,6 +115,9 @@ public class TabAdminSubtabManagers {
         street.clear();
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Seller seller = sellers.getSelectionModel().getSelectedItem();
         id.setText(seller.getId().toString());

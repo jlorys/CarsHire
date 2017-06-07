@@ -25,6 +25,10 @@ import javafx.scene.control.Label;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabManagerSubtabReport {
 
@@ -43,10 +47,19 @@ public class TabManagerSubtabReport {
     @FXML
     Button generate;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
 
+    /**
+     *
+     * @throws DocumentException
+     * @throws IOException
+     */
     @FXML
     public void btnGeneratePdf() throws DocumentException, IOException {
         if (!directory.getText().isEmpty()) {
@@ -56,6 +69,12 @@ public class TabManagerSubtabReport {
         }
     }
 
+    /**
+     *
+     * @param result
+     * @throws DocumentException
+     * @throws IOException
+     */
     public void createReportPdf(String result) throws DocumentException, IOException {
         Document document = new Document();
         PdfWriter.getInstance(document, new FileOutputStream(result));

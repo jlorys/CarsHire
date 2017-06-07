@@ -12,6 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ *
+ * @author Kuba
+ */
 @Component
 public class TabManagerSubtabClientsDiscount {
 
@@ -20,6 +24,10 @@ public class TabManagerSubtabClientsDiscount {
 
     private CarsPresenter main;
 
+    /**
+     *
+     * @param carsPresenter
+     */
     public void init(CarsPresenter carsPresenter) {
         main = carsPresenter;
     }
@@ -57,12 +65,18 @@ public class TabManagerSubtabClientsDiscount {
         clients.getSelectionModel().selectFirst();
     }
 
+    /**
+     *
+     */
     public void fillTextFields() {
         Client client = clients.getSelectionModel().getSelectedItem();
         id.setText(client.getId().toString());
         discountSlider.setValue(client.getDiscount());
     }
 
+    /**
+     * This method is to add discount to the client
+     */
     @FXML
     public void btnAddDiscountClient() {
         if (!id.getText().isEmpty()) {
@@ -70,7 +84,6 @@ public class TabManagerSubtabClientsDiscount {
 
             Double discountSliderBar = discountSlider.getValue();
             Integer discountSliderValue = discountSliderBar.intValue();
-            BigDecimal discountSliderValueFXbd = new BigDecimal(discountSliderValue.toString());
 
             client.setDiscount(discountSliderValue);
 
