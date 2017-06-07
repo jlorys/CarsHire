@@ -3,7 +3,9 @@ package carshire.ui;
 import carshire.SellerService;
 import carshire.domain.Seller;
 import carshire.domain.Seller.Rights;
+import java.io.File;
 import java.util.Optional;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 
 @Component
 public class CarsPresenter {
@@ -152,6 +156,29 @@ public class CarsPresenter {
             @Override
             public void handle(MouseEvent event) {
                 tabEmployeeSubtabHireReturn.fillTextFields();
+            }
+        });
+
+        tabEmployeeSubtabInvoice.hires.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tabEmployeeSubtabInvoice.fillTextFields();
+            }
+        });
+
+        tabEmployeeSubtabInvoice.directoryChooser.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DirectoryChooser directoryChooser = new DirectoryChooser();
+                Stage primaryStage = null;
+                File selectedDirectory
+                        = directoryChooser.showDialog(primaryStage);
+
+                if (selectedDirectory == null) {
+                    tabEmployeeSubtabInvoice.directory.setText("No Directory selected");
+                } else {
+                    tabEmployeeSubtabInvoice.directory.setText(selectedDirectory.getAbsolutePath());
+                }
             }
         });
     }

@@ -50,4 +50,9 @@ class SellerServiceImpl implements SellerService {
     public Seller findByLogin(final String login) {
         return sellerRepository.findByLogin(login);
     }
+
+    @Override
+    public Seller findById(final Long id) {
+        return sellerRepository.findById(id);
+    }
 }

@@ -18,4 +18,6 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
     List<Seller> findAllManagers();
     
     public Seller findByLogin(final String login);
+    
+    public Seller findById(final Long id);
 }

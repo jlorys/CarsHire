@@ -18,4 +18,6 @@ public interface SellerService {
     public void deleteAll();
     
     public Seller findByLogin(final String login);
+    
+    public Seller findById(final Long id);
 }
