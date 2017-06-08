@@ -18,7 +18,7 @@ public interface HireRepository extends JpaRepository<Hire, Long> {
      * @param status
      * @return
      */
-    public Hire findByCarIdAndStatus(final Long carId, final HireStatus status);
+    public Hire findByCarIdAndStatus(Long carId, HireStatus status);
     
     /**
      *

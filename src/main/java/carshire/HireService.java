@@ -28,26 +28,31 @@ public interface HireService {
      * @param hire
      */
     public void delete(Hire hire);
-    
+
     /**
      *
      * @param carId
      * @param status
      * @return
      */
-    public Hire findByCarIdAndStatus(final Long carId, final Hire.HireStatus status);
-    
+    public Hire findByCarIdAndStatus(Long carId, Hire.HireStatus status);
+
     /**
      *
      * @param sellerId
      * @return
      */
     public Long countBySellerId(Long sellerId);
-    
+
     /**
      *
      * @param sellerId
      * @return
      */
     BigDecimal findSumOfEmployeeEarnings(Long sellerId);
+
+    /**
+     *
+     */
+    public void deleteAll();
 }

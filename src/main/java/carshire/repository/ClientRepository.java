@@ -15,5 +15,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
      * @param id
      * @return
      */
-    public Client findById(final Long id);
+    public Client findById(Long id);
 }

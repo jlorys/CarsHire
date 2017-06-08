@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
+import org.junit.After;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -44,8 +46,32 @@ public class SellerRepositoryTest {
      *
      */
     @Test
-    public void find_OneSellerEntryFound_ShouldReturnAListOfOneEntry() {
+    public void find_OneManagerEntryFound_ShouldReturnAListOfOneEntry() {
         List<Seller> sellerEntries = repository.findAllManagers();
         assertThat(sellerEntries.size(), is(1));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void find_OneEmployeeEntryFound_ShouldReturnAListOfOneEntry() {
+        List<Seller> sellerEntries = repository.findAllEmployess();
+        assertThat(sellerEntries.size(), is(1));
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void find_OneSellerEntryFound_ShouldReturnOneEntry() {
+        Seller seller = repository.findByLogin("wiertel");
+        String login = seller.getLogin();
+        assertTrue(login.equals("wiertel"));
+    }
+
+    @After
+    public void after() throws Exception {
+        repository.deleteAll();
     }
 }

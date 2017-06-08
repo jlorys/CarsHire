@@ -16,7 +16,7 @@ public interface CarRepository extends JpaRepository<Car, Long> {
      * @param id
      * @return
      */
-    public Car findById(final Long id);
+    Car findById(Long id);
     
     /**
      *

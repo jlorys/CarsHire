@@ -17,11 +17,13 @@ class ClientServiceImpl implements ClientService {
         this.clientRepository = clientRepository;
     }
 
+    @Override
     public List<Client> findAllClients() {
         return clientRepository.findAll();
     }
 
     @Transactional
+    @Override
     public Client save(Client client) {
         return clientRepository.save(client);
     }
@@ -32,7 +34,12 @@ class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findById(final Long id) {
+    public Client findById(Long id) {
         return clientRepository.findById(id);
+    }
+    
+    @Override
+    public void deleteAll() {
+        clientRepository.deleteAll();
     }
 }

@@ -49,12 +49,12 @@ class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller findByLogin(final String login) {
+    public Seller findByLogin(String login) {
         return sellerRepository.findByLogin(login);
     }
 
     @Override
-    public Seller findById(final Long id) {
+    public Seller findById(Long id) {
         return sellerRepository.findById(id);
     }
 }

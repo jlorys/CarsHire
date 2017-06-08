@@ -2,7 +2,6 @@ package carshire.ui;
 
 import carshire.ClientService;
 import carshire.domain.Client;
-import carshire.domain.Seller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

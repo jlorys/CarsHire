@@ -17,11 +17,13 @@ class CarServiceImpl implements CarService {
         this.carRepository = carRepository;
     }
 
+    @Override
     public List<Car> findAllCars() {
         return carRepository.findAll();
     }
 
     @Transactional
+    @Override
     public Car save(Car car) {
         return carRepository.save(car);
     }
@@ -32,7 +34,7 @@ class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car findById(final Long id) {
+    public Car findById(Long id) {
         return carRepository.findById(id);
     }
 
@@ -44,5 +46,10 @@ class CarServiceImpl implements CarService {
     @Override
     public List<Car> findAllNotAvalibleCars() {
         return carRepository.findAllNotAvalibleCars();
+    }
+
+    @Override
+    public void deleteAll() {
+        carRepository.deleteAll();
     }
 }

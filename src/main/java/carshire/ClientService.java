@@ -27,11 +27,16 @@ public interface ClientService {
      * @param client
      */
     public void delete(Client client);
-    
+
     /**
      *
      * @param id
      * @return
      */
-    public Client findById(final Long id);
+    public Client findById(Long id);
+
+    /**
+     *
+     */
+    public void deleteAll();
 }

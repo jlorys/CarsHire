@@ -40,12 +40,12 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
      * @param login
      * @return
      */
-    public Seller findByLogin(final String login);
+    Seller findByLogin(String login);
     
     /**
      *
      * @param id
      * @return
      */
-    public Seller findById(final Long id);
+    Seller findById(Long id);
 }

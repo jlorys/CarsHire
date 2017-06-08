@@ -27,23 +27,28 @@ public interface CarService {
      * @param car
      */
     public void delete(Car car);
-    
+
     /**
      *
      * @param id
      * @return
      */
-    public Car findById(final Long id);
-    
+    public Car findById(Long id);
+
     /**
      *
      * @return
      */
     public List<Car> findAllAvalibleCars();
-    
+
     /**
      *
      * @return
      */
     public List<Car> findAllNotAvalibleCars();
+
+    /**
+     *
+     */
+    public void deleteAll();
 }

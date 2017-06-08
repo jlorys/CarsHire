@@ -46,4 +46,9 @@ class HireServiceImpl implements HireService {
     public BigDecimal findSumOfEmployeeEarnings(Long sellerId) {
         return hireRepository.findSumOfEmployeeEarnings(sellerId);
     }
+
+    @Override
+    public void deleteAll() {
+        hireRepository.deleteAll();
+    }
 }

@@ -100,8 +100,6 @@ public class CarsPresenter {
     @FXML
     public void initialize() {
         disableTabs();
-        login.setText("wiertel");
-        password.setText("mw");
 
         tabManagerSubtabCars.init(this);
         tabManagerSubtabCarsDiscount.init(this);

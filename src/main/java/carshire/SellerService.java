@@ -50,12 +50,12 @@ public interface SellerService {
      * @param login
      * @return
      */
-    public Seller findByLogin(final String login);
+    public Seller findByLogin(String login);
     
     /**
      *
      * @param id
      * @return
      */
-    public Seller findById(final Long id);
+    public Seller findById(Long id);
 }
