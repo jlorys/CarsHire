@@ -3,6 +3,7 @@ package carshire.ui;
 import carshire.SellerService;
 import carshire.domain.Seller;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -53,14 +54,17 @@ public class TabManagerSubtabEmployees {
     TableColumn<Seller, Seller.Rights> rightsColumn;
     @FXML
     TextField id, firstName, lastName, login, eMail, password, city, street, houseNumber, rights;
+    @FXML
+    Label info;
 
     /**
      *
      */
     @FXML
     public void btnAddEmployee() {
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()) {
-
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()
+                || login.getText().isEmpty()) {
+            info.setText("Imię, nazwisko i login są wymagane");
         } else {
             Seller seller = new Seller();
             if (!id.getText().isEmpty()) {
@@ -76,9 +80,15 @@ public class TabManagerSubtabEmployees {
             seller.setHouseNumber(houseNumber.getText());
             seller.setRights(Seller.Rights.Employee);
 
-            main.deleteAllSellersViews();
-            service.save(seller);
-            main.addAllSellersViews();
+            try {
+                service.save(seller);
+                main.deleteAllSellersViews();
+                main.addAllSellersViews();
+
+            } catch (RuntimeException a) {
+                a.printStackTrace();
+                info.setText("Taki login jest już zajęty");
+            }
         }
     }
 

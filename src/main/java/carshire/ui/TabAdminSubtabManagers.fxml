@@ -24,7 +24,7 @@
                                 <TextField fx:id="password" layoutX="98.0" layoutY="179.0" />
                                 <TextField fx:id="eMail" layoutX="97.0" layoutY="148.0" />
                                 <TextField fx:id="city" layoutX="96.0" layoutY="212.0" />
-                                <TextField fx:id="street" layoutX="96.0" layoutY="245.0" />
+                                <TextField fx:id="street" layoutX="96.0" layoutY="245.0" />                             
                                 <Label layoutX="36.0" layoutY="187.0" text="Hasło" />
                                 <Label layoutX="34.0" layoutY="154.0" text="e-mail" />
                                 <Label layoutX="21.0" layoutY="217.0" text="Miejsowość" />
@@ -33,6 +33,7 @@
                                 <Label layoutX="260.0" layoutY="18.0" text="Kierownicy w bazie" />
                                 <Button layoutX="25.0" layoutY="410.0" onAction="#btnAddManager" styleClass="record-sales" text="Dodaj kierownika" />
                                 <Button layoutX="25.0" layoutY="460.0" mnemonicParsing="false" onAction="#btnDeleteManager" styleClass="record-sales" text="Usuń" />
+                                <Label fx:id="info" layoutX="25.0" layoutY="510.0" text="" />
                                 <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnClearManager" styleClass="record-sales" text="Wyczyść pola" />
                                 <TableView fx:id="sellers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
                                     <columns>

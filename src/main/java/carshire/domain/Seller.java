@@ -6,6 +6,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"login"})})
 public class Seller {
 
     /**
@@ -47,6 +49,7 @@ public class Seller {
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(name = "login")
     private String login;
     private String eMail;
     private String password;

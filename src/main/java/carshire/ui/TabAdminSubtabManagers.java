@@ -3,6 +3,7 @@ package carshire.ui;
 import carshire.SellerService;
 import carshire.domain.Seller;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -53,14 +54,17 @@ public class TabAdminSubtabManagers {
     TableColumn<Seller, Seller.Rights> rightsColumn;
     @FXML
     TextField id, firstName, lastName, login, eMail, password, city, street, houseNumber;
-    
+    @FXML
+    Label info;
+
     /**
      *
      */
     @FXML
     public void btnAddManager() {
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()) {
-
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()
+                || login.getText().isEmpty()) {
+            info.setText("Imię, nazwisko i login są wymagane");
         } else {
             Seller seller = new Seller();
             if (!id.getText().isEmpty()) {
@@ -76,9 +80,15 @@ public class TabAdminSubtabManagers {
             seller.setHouseNumber(houseNumber.getText());
             seller.setRights(Seller.Rights.Manager);
 
-            main.deleteAllSellersViews();
-            service.save(seller);
-            main.addAllSellersViews();
+            try {
+                service.save(seller);
+                main.deleteAllSellersViews();
+                main.addAllSellersViews();
+
+            } catch (RuntimeException a) {
+                a.printStackTrace();
+                info.setText("Taki login jest już zajęty");
+            }
         }
     }
 
@@ -129,6 +139,7 @@ public class TabAdminSubtabManagers {
         city.setText(seller.getCity());
         street.setText(seller.getStreet());
         houseNumber.setText(seller.getHouseNumber());
+        info.setText("");
     }
 
     void configureTable() {
@@ -150,7 +161,7 @@ public class TabAdminSubtabManagers {
         }
         sellers.getSelectionModel().selectFirst();
     }
-    
+
     void deleteAllViewRecords() {
         for (Seller seller : service.findAllManagers()) {
             sellers.getItems().remove(seller);

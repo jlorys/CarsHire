@@ -30,6 +30,7 @@
                 <Label layoutX="260.0" layoutY="18.0" text="Pracownicy w bazie" />
                 <Button layoutX="25.0" layoutY="410.0" onAction="#btnAddEmployee" styleClass="record-sales" text="Dodaj pracownika" />
                 <Button layoutX="25.0" layoutY="460.0" mnemonicParsing="false" onAction="#btnDeleteEmployee" styleClass="record-sales" text="Usuń" />
+                <Label fx:id="info" layoutX="25.0" layoutY="510.0" text="" />
                 <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnClearEmployee" styleClass="record-sales" text="Wyczyść pola" />
                 <TableView fx:id="sellers" layoutX="260.0" layoutY="41.0" prefHeight="665.0" prefWidth="752.0">
                     <columns>
