@@ -220,7 +220,7 @@ public class CarsPresenter {
             }
         });
     }
-
+    
     void fillHiresTables() {
         tabEmployeeSubtabInvoice.fillTable();
         tabEmployeeSubtabHire.fillTable();

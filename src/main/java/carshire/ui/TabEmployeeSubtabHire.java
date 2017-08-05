@@ -58,7 +58,7 @@ public class TabEmployeeSubtabHire {
     @FXML
     TextField idClient;
 
-    //Manager tab - Cars subtab
+    //Manager tab - CarsPresenter subtab
     @FXML
     TableView<Car> cars;
     @FXML

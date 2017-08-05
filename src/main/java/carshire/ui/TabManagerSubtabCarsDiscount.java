@@ -33,7 +33,7 @@ public class TabManagerSubtabCarsDiscount {
         main = carsPresenter;
     }
 
-    //Manager tab - Cars subtab
+    //Manager tab - CarsPresenter subtab
     @FXML
     TableView<Car> cars;
     @FXML

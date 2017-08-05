@@ -65,8 +65,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- plugin for parallel test classes loading -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <parallel>classes</parallel>
+                    <threadCount>3</threadCount>
+                </configuration>
+            </plugin>
         </plugins>
-
+        
         <resources>
             <!-- copy fxml and css resources -->
             <resource>
