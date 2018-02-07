@@ -2,6 +2,8 @@
 
 CarsHire JavaFx application is for manage car hire company
 
+## Visual presentation
+
 ![1](https://user-images.githubusercontent.com/24614511/27338615-fd75300c-55d5-11e7-9846-de1774ea3483.jpg)<br />
 ![2](https://user-images.githubusercontent.com/24614511/27338625-02e60f66-55d6-11e7-8218-8295b6c7220b.jpg)<br />
 ![3](https://user-images.githubusercontent.com/24614511/27338628-070a0796-55d6-11e7-9b65-9ee1ea88effe.jpg)<br />
