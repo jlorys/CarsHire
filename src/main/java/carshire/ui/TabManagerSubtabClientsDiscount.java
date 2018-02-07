@@ -59,9 +59,7 @@ public class TabManagerSubtabClientsDiscount {
 
     void fillTable() {
         configureTable();
-        for (Client client : service.findAllClients()) {
-            clients.getItems().add(client);
-        }
+        service.findAllClients().stream().forEach(v -> clients.getItems().add(v));
         clients.getSelectionModel().selectFirst();
     }
 
@@ -94,14 +92,10 @@ public class TabManagerSubtabClientsDiscount {
     }
 
     void deleteAllViewRecords() {
-        for (Client client : service.findAllClients()) {
-            clients.getItems().remove(client);
-        }
+        service.findAllClients().stream().forEach(v -> clients.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Client client : service.findAllClients()) {
-            clients.getItems().add(client);
-        }
+        service.findAllClients().stream().forEach(v -> clients.getItems().add(v));
     }
 }

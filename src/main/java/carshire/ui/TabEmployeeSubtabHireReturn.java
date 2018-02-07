@@ -161,22 +161,16 @@ public class TabEmployeeSubtabHireReturn {
 
     void fillTable() {
         configureTable();
-        for (Car car : carService.findAllNotAvalibleCars()) {
-            cars.getItems().add(car);
-        }
+        carService.findAllNotAvalibleCars().stream().forEach(v -> cars.getItems().add(v));
         cars.getSelectionModel().selectFirst();
     }
 
     void deleteAllViewRecords() {
-        for (Car car : carService.findAllNotAvalibleCars()) {
-            cars.getItems().remove(car);
-        }
+        carService.findAllNotAvalibleCars().stream().forEach(v -> cars.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Car car : carService.findAllNotAvalibleCars()) {
-            cars.getItems().add(car);
-        }
+        carService.findAllNotAvalibleCars().stream().forEach(v -> cars.getItems().add(v));
     }
 
     /**

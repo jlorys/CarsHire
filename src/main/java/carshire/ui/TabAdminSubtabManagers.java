@@ -156,21 +156,15 @@ public class TabAdminSubtabManagers {
 
     void fillTable() {
         configureTable();
-        for (Seller seller : service.findAllManagers()) {
-            sellers.getItems().add(seller);
-        }
+        service.findAllManagers().stream().forEach(v -> sellers.getItems().add(v));
         sellers.getSelectionModel().selectFirst();
     }
 
     void deleteAllViewRecords() {
-        for (Seller seller : service.findAllManagers()) {
-            sellers.getItems().remove(seller);
-        }
+        service.findAllManagers().stream().forEach(v -> sellers.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Seller seller : service.findAllManagers()) {
-            sellers.getItems().add(seller);
-        }
+        service.findAllManagers().stream().forEach(v -> sellers.getItems().add(v));
     }
 }

@@ -117,22 +117,16 @@ public class TabEmployeeSubtabInvoice {
 
     void fillTable() {
         configureTable();
-        for (Hire hire : hireService.findAllHires()) {
-            hires.getItems().add(hire);
-        }
+        hireService.findAllHires().stream().forEach(v -> hires.getItems().add(v));
         hires.getSelectionModel().selectFirst();
     }
 
     void deleteAllViewRecords() {
-        for (Hire hire : hireService.findAllHires()) {
-            hires.getItems().remove(hire);
-        }
+        hireService.findAllHires().stream().forEach(v -> hires.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Hire hire : hireService.findAllHires()) {
-            hires.getItems().add(hire);
-        }
+        hireService.findAllHires().stream().forEach(v -> hires.getItems().add(v));
     }
 
     /**

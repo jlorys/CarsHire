@@ -155,21 +155,15 @@ public class TabManagerSubtabEmployees {
 
     void fillTable() {
         configureTable();
-        for (Seller seller : service.findAllEmployess()) {
-            sellers.getItems().add(seller);
-        }
+        service.findAllEmployess().stream().forEach(v -> sellers.getItems().add(v));
         sellers.getSelectionModel().selectFirst();
     }
 
     void deleteAllViewRecords() {
-        for (Seller seller : service.findAllEmployess()) {
-            sellers.getItems().remove(seller);
-        }
+        service.findAllEmployess().stream().forEach(v -> sellers.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Seller seller : service.findAllEmployess()) {
-            sellers.getItems().add(seller);
-        }
+        service.findAllEmployess().stream().forEach(v -> sellers.getItems().add(v));
     }
 }

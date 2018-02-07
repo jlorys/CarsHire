@@ -88,9 +88,7 @@ public class TabManagerSubtabCarsDiscount {
 
     void fillTable() {
         configureTable();
-        for (Car car : service.findAllCars()) {
-            cars.getItems().add(car);
-        }
+        service.findAllCars().stream().forEach(v -> cars.getItems().add(v));
         cars.getSelectionModel().selectFirst();
     }
 
@@ -104,14 +102,10 @@ public class TabManagerSubtabCarsDiscount {
     }
 
     void deleteAllViewRecords() {
-        for (Car car : service.findAllCars()) {
-            cars.getItems().remove(car);
-        }
+        service.findAllCars().stream().forEach(v -> cars.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Car car : service.findAllCars()) {
-            cars.getItems().add(car);
-        }
+        service.findAllCars().stream().forEach(v -> cars.getItems().add(v));
     }
 }

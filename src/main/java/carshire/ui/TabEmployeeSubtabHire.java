@@ -199,33 +199,21 @@ public class TabEmployeeSubtabHire {
 
     void fillTable() {
         configureTable();
-        for (Car car : carService.findAllAvalibleCars()) {
-            cars.getItems().add(car);
-        }
+        carService.findAllAvalibleCars().stream().forEach(v -> cars.getItems().add(v));
         cars.getSelectionModel().selectFirst();
 
-        for (Client client : clientService.findAllClients()) {
-            clients.getItems().add(client);
-        }
+        clientService.findAllClients().stream().forEach(v -> clients.getItems().add(v));
         clients.getSelectionModel().selectFirst();
     }
 
     void deleteAllViewRecords() {
-        for (Car car : carService.findAllAvalibleCars()) {
-            cars.getItems().remove(car);
-        }
-        for (Client client : clientService.findAllClients()) {
-            clients.getItems().remove(client);
-        }
+        carService.findAllAvalibleCars().stream().forEach(v -> cars.getItems().remove(v));
+        clientService.findAllClients().stream().forEach(v -> clients.getItems().remove(v));
     }
 
     void addAllViewRecords() {
-        for (Car car : carService.findAllAvalibleCars()) {
-            cars.getItems().add(car);
-        }
-        for (Client client : clientService.findAllClients()) {
-            clients.getItems().add(client);
-        }
+        carService.findAllAvalibleCars().stream().forEach(v -> cars.getItems().add(v));
+        clientService.findAllClients().stream().forEach(v -> clients.getItems().add(v));
     }
 
     /**
