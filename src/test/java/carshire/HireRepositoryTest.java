@@ -27,15 +27,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class HireRepositoryTest {
 
     @Autowired
-    private HireService repository;
+    private HireService service;
 
-    /**
-     *
-     * @throws Exception
-     */
     @Before
     public void setUp() throws Exception {
-        repository.deleteAll();
+        service.deleteAll();
         Hire hire1 = new Hire(1L, 1L, 1L, 1L,
                 LocalDateTime.of(2012, Month.of(12), 13, 14, 54),
                 LocalDateTime.of(2012, Month.of(12), 18, 14, 54),
@@ -55,40 +51,31 @@ public class HireRepositoryTest {
                 new BigDecimal("487.25"),
                 new BigDecimal(BigInteger.ZERO));
 
-        repository.save(hire1);
-        repository.save(hire2);
-        repository.save(hire3);
+        service.save(hire1);
+        service.save(hire2);
+        service.save(hire3);
     }
 
-    /**
-     *
-     */
     @Test
     public void findByCarIdAndStatus_OneHireEntryFound_ShouldReturnPaid() {
-        Hire hire = repository.findByCarIdAndStatus(1L, HireStatus.Paid);
+        Hire hire = service.findByCarIdAndStatus(1L, HireStatus.Paid);
         assertThat(hire.getStatus(), is(HireStatus.Paid));
     }
 
-    /**
-     *
-     */
     @Test
     public void countBySellerId_OneHireEntryFound_ShouldReturn1() {
-        Long howManyHiresWasMadeBySellerWithId2 = repository.countBySellerId(2L);
+        Long howManyHiresWasMadeBySellerWithId2 = service.countBySellerId(2L);
         assertThat(howManyHiresWasMadeBySellerWithId2, is(1L));
     }
 
-    /**
-     *
-     */
     @Test
     public void findSumOfEmployeeEarnings_OneSellerEntryFound_ShouldReturn105() {
-        BigDecimal sumOfEmployeeEarnings = repository.findSumOfEmployeeEarnings(1L);
+        BigDecimal sumOfEmployeeEarnings = service.findSumOfEmployeeEarnings(1L);
         assertThat(sumOfEmployeeEarnings, is(new BigDecimal("105.0")));
     }
 
     @After
     public void after() throws Exception {
-        repository.deleteAll();
+        service.deleteAll();
     }
 }

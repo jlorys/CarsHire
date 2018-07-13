@@ -25,53 +25,40 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SellerRepositoryTest {
 
     @Autowired
-    private SellerService repository;
+    private SellerService service;
 
-    /**
-     *
-     * @throws Exception
-     */
     @Before
     public void setUp() throws Exception {
-        repository.deleteAll();
+        service.deleteAll();
         Seller seller1 = new Seller(1L, "Maciej", "Wiertnik", "wiertel", "mwiertnik@o2.pl", "mw", "Rzeszow", "Sienkiwicza", "14", Rights.Admin);
         Seller seller2 = new Seller(2L, "Dominik", "Chochlik", "chochel", "dchochlik@o2.pl", "dc", "Rzeszow", "Marynarska", "99", Rights.Manager);
         Seller seller3 = new Seller(3L, "Janusz", "Tranowski", "tranel", "jtranowski@o2.pl", "jt", "Rzeszow", "Wojenna", "19", Rights.Employee);
-        repository.save(seller1);
-        repository.save(seller2);
-        repository.save(seller3);
+        service.save(seller1);
+        service.save(seller2);
+        service.save(seller3);
     }
 
-    /**
-     *
-     */
     @Test
     public void find_OneManagerEntryFound_ShouldReturnAListOfOneEntry() {
-        List<Seller> sellerEntries = repository.findAllManagers();
+        List<Seller> sellerEntries = service.findAllManagers();
         assertThat(sellerEntries.size(), is(1));
     }
 
-    /**
-     *
-     */
     @Test
     public void find_OneEmployeeEntryFound_ShouldReturnAListOfOneEntry() {
-        List<Seller> sellerEntries = repository.findAllEmployess();
+        List<Seller> sellerEntries = service.findAllEmployess();
         assertThat(sellerEntries.size(), is(1));
     }
 
-    /**
-     *
-     */
     @Test
     public void find_OneSellerEntryFound_ShouldReturnOneEntry() {
-        Seller seller = repository.findByLogin("wiertel");
+        Seller seller = service.findByLogin("wiertel");
         String login = seller.getLogin();
         assertTrue(login.equals("wiertel"));
     }
 
     @After
     public void after() throws Exception {
-        repository.deleteAll();
+        service.deleteAll();
     }
 }
