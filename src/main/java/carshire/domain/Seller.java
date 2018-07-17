@@ -25,22 +25,9 @@ import lombok.ToString;
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"login"})})
 public class Seller {
 
-    /**
-     *
-     */
     public enum Rights {
-
-        /**
-         *
-         */
         Admin,
-        /**
-         *
-         */
         Manager,
-        /**
-         *
-         */
         Employee
     };
 

@@ -23,19 +23,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Car {
 
-    /**
-     *
-     */
     public enum CarStatus {
-
-        /**
-         *
-         */
         Avalible,
-
-        /**
-         *
-         */
         NotAvalible
     };
 

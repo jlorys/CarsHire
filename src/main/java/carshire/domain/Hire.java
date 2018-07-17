@@ -24,19 +24,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Hire {
 
-    /**
-     *
-     */
     public enum HireStatus {
-
-        /**
-         *
-         */
         Paid,
-
-        /**
-         *
-         */
         NotPaid
     };
 
