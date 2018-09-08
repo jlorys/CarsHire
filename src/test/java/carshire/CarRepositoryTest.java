@@ -45,7 +45,7 @@ public class CarRepositoryTest {
     }
 
     @Test
-    public void find_AllNotAvalibleCarEntriesFound_ShouldReturnAListOfManyEntries() {
+    public void find_AllNotAvalibleCarEntriesFound_ShouldReturnAListOfZeroEntries() {
         List<Car> sellerEntries = service.findAllNotAvalibleCars();
         assertThat(sellerEntries.size(), is(0));
     }
